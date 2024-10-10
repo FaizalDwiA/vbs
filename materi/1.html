@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Message Box Numbers &lpar;Msgbox&rpar;</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="message-box-numbers-msgbox">Message Box Numbers (Msgbox)</h1>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <p>
+        <img src="..\asset\img\materi\1\1.webp" alt="1" />
+    </p>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Box Message&quot;</span>, Type, <span class="hljs-string">&quot;Title&quot;</span>
+</code></pre>
+    <h2 id="contoh">Contoh</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Box Message&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-string">&quot;Title&quot;</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\1\4.webp" alt="4" />
+    </p>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Banana&quot;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&quot;Hello&quot;</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\1\5.webp" alt="5" />
+    </p>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Bannana&quot;</span>, <span class="hljs-number">20</span>, <span class="hljs-string">&quot;Hello&quot;</span>
+Msgbox <span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-number">66</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\1\6.webp" alt="6" />
+    </p>
+    <p>
+        <img src="..\asset\img\materi\1\7.webp" alt="7" />
+    </p>
+    <hr />
+    <pre><code class="language-vbs">x = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Is it your birthday&quot;</span>, <span class="hljs-number">36</span>, <span class="hljs-string">&quot;Hello&quot;</span>)
+<span class="hljs-keyword">if</span> x = <span class="hljs-number">6</span> <span class="hljs-keyword">then</span> MsgBox <span class="hljs-string">&quot;Happy Birthday!&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\1\8.webp" alt="8" />
+    </p>
+    <blockquote>
+        <p>jika diklik yes</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\1\9.webp" alt="9" />
+    </p>
+    <pre><code class="language-vbs">x = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Is it your birthday&quot;</span>, <span class="hljs-number">36</span>, <span class="hljs-string">&quot;Hello&quot;</span>)
+<span class="hljs-keyword">if</span> x = <span class="hljs-number">6</span> <span class="hljs-keyword">then</span> MsgBox <span class="hljs-string">&quot;Happy Birthday!&quot;</span>, <span class="hljs-number">64</span>
+<span class="hljs-keyword">if</span> x = <span class="hljs-number">7</span> <span class="hljs-keyword">then</span> MsgBox <span class="hljs-string">&quot;Oops, my bad.&quot;</span>, <span class="hljs-number">16</span>
+</code></pre>
+    <blockquote>
+        <p>jika diklik no</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\1\10.webp" alt="10" />
+    </p>
+</body>
+
+</html>

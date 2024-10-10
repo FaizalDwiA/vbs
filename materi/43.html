@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Lcase Ucase Trim</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="lcase-ucase-trim">Lcase Ucase Trim</h1>
+    <h2 id="lcase--mengecilkan-huruf">Lcase : mengecilkan huruf</h2>
+    <blockquote>
+        <p><strong>L</strong> : Lower</p>
+    </blockquote>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> a
+
+a = <span class="hljs-string">&quot;This is a message. No duh...&quot;</span>
+
+MsgBox LCase(a)
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\43\1.webp" alt="1" /></p>
+    <h2 id="ucase--memperbesar-huruf">Ucase : Memperbesar Huruf</h2>
+    <blockquote>
+        <p><strong>U</strong> : Upper</p>
+    </blockquote>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> a
+
+a = <span class="hljs-string">&quot;This is a message. No duh...&quot;</span>
+
+MsgBox UCase(a)
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\43\2.webp" alt="2" /></p>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> a
+
+a = <span class="hljs-string">&quot;This is a message. No duh... Cantaloupe.&quot;</span>
+
+<span class="hljs-keyword">if</span> InStr(LCase(a), <span class="hljs-string">&quot;cantaloupe&quot;</span>) <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    MsgBox <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <h2 id="trim">Trim</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> a
+
+a = <span class="hljs-string">&quot;   hey  &quot;</span>
+
+MsgBox a
+MsgBox Trim(a)
+</code></pre>
+    <p>Tanpa trim</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\43\3.webp" alt="3" /></p>
+    <p>Menggunakan Trim</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\43\4.webp" alt="4" /></p>
+    <h2 id="ltrim--rtrim">LTrim &amp; RTrim</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> a
+
+a = <span class="hljs-string">&quot;   hey  &quot;</span>
+
+<span class="hljs-comment">&#x27; msgbox a</span>
+MsgBox LTrim(a) &amp; <span class="hljs-string">&quot;faizal&quot;</span>
+MsgBox RTrim(a) &amp; <span class="hljs-string">&quot;faizal&quot;</span>
+</code></pre>
+    <p>LTrim</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\43\5.webp" alt="5" /></p>
+    <p>RTrim</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\43\6.webp" alt="6" /></p>
+</body>
+
+</html>

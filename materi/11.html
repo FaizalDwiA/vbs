@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Subroutines</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="subroutines">Subroutines</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Sub</span>
+
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Sub</span>
+</code></pre>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Sub</span> Greeting
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Sub</span>
+</code></pre>
+    <blockquote>
+        <p>
+            jika kita jalankan belum bisa karena kita belum memanggil sub
+            nya
+        </p>
+    </blockquote>
+    <h2 id="call">Call</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Sub</span> Greeting
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Sub</span>
+
+<span class="hljs-keyword">call</span> Greeting
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">Call</span> finish
+<span class="hljs-keyword">call</span> start
+<span class="hljs-keyword">call</span> start
+
+<span class="hljs-keyword">sub</span> start
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">sub</span> finish
+    MsgBox <span class="hljs-string">&quot;Goodbye&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">sub</span>
+</code></pre>
+    <h2 id="parameter">Parameter</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">sub</span> greet(x)
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-number">20</span>, x
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">call</span> greet(<span class="hljs-string">&quot;Welcome person&quot;</span>)
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\11\1.webp" alt="1" />
+    </p>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">sub</span> greet(x)
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>, <span class="hljs-number">20</span>, x
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">call</span> greet(<span class="hljs-string">&quot;Welcome person&quot;</span>)
+<span class="hljs-keyword">call</span> greet(<span class="hljs-string">&quot;Greetings&quot;</span>)
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">sub</span> greet(x, word)
+    MsgBox word, <span class="hljs-number">20</span>, x
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">call</span> greet(<span class="hljs-string">&quot;Title&quot;</span>, <span class="hljs-string">&quot;Hello there&quot;</span>)
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">sub</span> greet(user)
+    MsgBox <span class="hljs-string">&quot;Hello, &quot;</span> &amp; user
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">call</span> greet(<span class="hljs-string">&quot;Faizal&quot;</span>)
+<span class="hljs-keyword">call</span> greet(<span class="hljs-string">&quot;Syiber&quot;</span>)
+</code></pre>
+    <h2 id="input-box">Input Box</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">sub</span> greet(user)
+    MsgBox <span class="hljs-string">&quot;Hello, &quot;</span> &amp; user
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">call</span> greet(<span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Please Type in your name&quot;</span>))
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">sub</span> greet(user)
+    MsgBox <span class="hljs-string">&quot;Hello, &quot;</span> &amp; user
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+x = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Please Type in your name&quot;</span>)
+<span class="hljs-keyword">call</span> greet(x)
+</code></pre>
+</body>
+
+</html>

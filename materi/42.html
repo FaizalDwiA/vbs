@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Mid Spilit InStr</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="mid-spilit-instr">Mid Spilit InStr</h1>
+    <h2 id="basic-mid">Basic Mid</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">mid</span>(<span class="hljs-type">string</span>, start, length)
+</code></pre>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+MsgBox <span class="hljs-keyword">mid</span>(message, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>)
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\42\1.webp" alt="1" /></p>
+    <h2 id="menampilkan-1-per-1-huruf">Menampilkan 1 per 1 huruf</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+<span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> len(message)
+    MsgBox <span class="hljs-keyword">mid</span>(message, i ,<span class="hljs-number">1</span>)
+<span class="hljs-keyword">next</span>
+</code></pre>
+    <h2 id="basic-split">Basic Split</h2>
+    <pre><code class="language-vb">Split(message, delimeter, count)
+</code></pre>
+    <blockquote>
+        <p>Default delimeter : <strong>spasi</strong></p>
+    </blockquote>
+    <h2 id="example-1">Example</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+mArray = Split(message)
+
+MsgBox mArray(<span class="hljs-number">0</span>)
+MsgBox mArray(<span class="hljs-number">1</span>)
+MsgBox mArray(<span class="hljs-number">5</span>)
+</code></pre>
+    <h2 id="menampilkan-pesan-per-kata">Menampilkan pesan per kata</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+mArray = Split(message)
+
+<span class="hljs-keyword">for</span> i = <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> UBound(mArray)
+    MsgBox mArray(i)
+<span class="hljs-keyword">Next</span>
+</code></pre>
+    <h2 id="dipisahkan-dengan-">Dipisahkan dengan <strong>.</strong></h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+mArray = Split(message, <span class="hljs-string">&quot;.&quot;</span>)
+
+<span class="hljs-keyword">for</span> i = <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> UBound(mArray)
+    MsgBox mArray(i)
+<span class="hljs-keyword">Next</span>
+</code></pre>
+    <h2 id="basic-instr">Basic inStr</h2>
+    <p>untuk mencari letak kata yang dicari</p>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+MsgBox InStr(message, <span class="hljs-string">&quot;How&quot;</span>)
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\42\2.webp" alt="2" /></p>
+    <blockquote>
+        <p>jika tidak ditemukan maka akan menghasilkan 0</p>
+    </blockquote>
+    <h2 id="menggunakan-kondisi">Menggunakan Kondisi</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+<span class="hljs-keyword">if</span> InStr(message, <span class="hljs-string">&quot;I&#x27;m&quot;</span>) <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    MsgBox <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\42\3.webp" alt="3" /></p>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+<span class="hljs-keyword">if</span> InStr(<span class="hljs-number">5</span>, message, <span class="hljs-string">&quot;sal&quot;</span>) <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    MsgBox <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <h2 id="instr-didalam-instr">inStr didalam inStr</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> message, i, mArray, n
+message = <span class="hljs-string">&quot;Hey sal, How are you? I&#x27;m good. So it my lamp, Done&quot;</span>
+
+<span class="hljs-keyword">if</span> InStr(InStr(message, <span class="hljs-string">&quot;sal&quot;</span>), message, <span class="hljs-string">&quot;sal&quot;</span>) <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    MsgBox <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+</body>
+
+</html>

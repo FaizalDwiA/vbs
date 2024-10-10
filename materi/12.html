@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Automation&colon; Internet Explorer</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$=\#gh-light-mode-only],
+            .vscode-light img[src$=\#gh-dark-mode-only] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css">
+        <link rel="stylesheet" href="../asset/css/highlight.min.css">
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+
+    </head>
+
+    <body class="vscode-body vscode-light">
+        <h1 id="automation-internet-explorer">Automation: Internet Explorer</h1>
+        <h2 id="example">Example</h2>
+        <pre><code class="language-vb"><span class="hljs-keyword">option</span> <span class="hljs-keyword">explicit</span>
+<span class="hljs-keyword">dim</span> ie, x
+
+<span class="hljs-keyword">set</span> ie = createobject(<span class="hljs-string">&quot;InternetExplorer.Application&quot;</span>)
+<span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+ie.Navigate <span class="hljs-string">&quot;http://google.com/&quot;</span>
+ie.Visible=<span class="hljs-number">1</span>
+ie.Toolbar=<span class="hljs-number">0</span>
+ie.StatusBar=<span class="hljs-number">0</span>
+ie.Height=<span class="hljs-number">560</span>
+ie.Width=<span class="hljs-number">1000</span>
+ie.Top=<span class="hljs-number">0</span>
+ie.Left=<span class="hljs-number">0</span>
+ie.Resizeble=<span class="hljs-number">0</span>
+
+x.sendkeys <span class="hljs-string">&quot;cow&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;{enter}&quot;</span>
+</code></pre>
+        <hr>
+        <h2 id="example-facebook">Example Facebook</h2>
+        <pre><code class="language-vb"><span class="hljs-keyword">option</span> <span class="hljs-keyword">explicit</span>
+<span class="hljs-keyword">dim</span> ie, x
+
+<span class="hljs-keyword">set</span> ie = createobject(<span class="hljs-string">&quot;InternetExplorer.Application&quot;</span>)
+<span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+<span class="hljs-keyword">sub</span> waitforload
+    <span class="hljs-keyword">Do</span> <span class="hljs-keyword">While</span> ie.Busy
+        wscript.sleep <span class="hljs-number">200</span>
+    <span class="hljs-keyword">Loop</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+
+ie.Navigate <span class="hljs-string">&quot;http://www.facebook.com/&quot;</span>
+ie.Visible=<span class="hljs-number">1</span>
+ie.Toolbar=<span class="hljs-number">0</span>
+ie.StatusBar=<span class="hljs-number">0</span>
+ie.Height=<span class="hljs-number">560</span>
+ie.Width=<span class="hljs-number">1000</span>
+ie.Top=<span class="hljs-number">0</span>
+ie.Left=<span class="hljs-number">0</span>
+ie.Resizeble=<span class="hljs-number">0</span>
+
+<span class="hljs-keyword">call</span> waitforload
+x.sendkeys <span class="hljs-string">&quot;cow&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;{tab}&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;pass&quot;</span>
+</code></pre>
+        <hr>
+        <h2 id="example-melihat-gambar">Example melihat gambar</h2>
+        <pre><code class="language-vb"><span class="hljs-keyword">option</span> <span class="hljs-keyword">explicit</span>
+<span class="hljs-keyword">dim</span> ie
+
+<span class="hljs-keyword">set</span> ie = createobject(<span class="hljs-string">&quot;chrome.Application&quot;</span>)
+
+ie.Navigate <span class="hljs-string">&quot;gambdf123saraadfdf.jpg&quot;</span>
+
+ie.Toolbar=<span class="hljs-number">0</span>
+ie.StatusBar=<span class="hljs-number">0</span>
+ie.Height=<span class="hljs-number">148</span>
+ie.Width=<span class="hljs-number">100</span>
+ie.Top=<span class="hljs-number">313</span>
+ie.Left=<span class="hljs-number">780</span>
+
+ie.Visible=<span class="hljs-number">1</span>
+msgbox <span class="hljs-string">&quot;Check out this watch!&quot;</span>
+
+ie.Quit
+wscript.Quit
+</code></pre>
+
+
+
+    </body>
+
+</html>

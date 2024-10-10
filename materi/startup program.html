@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Startup Program</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="startup-program">Startup Program</h1>
+        <h2 id="program-yang-dijalankan">Program yang dijalankan</h2>
+        <p>Program yang dijalankan ketika kita baru mulai windows / startup</p>
+        <p>Melihat program yang dijalankan saat startup :</p>
+        <ol>
+            <li>
+                Klik tombol &quot;Start&quot; atau &quot;Mulai&quot; di pojok
+                kiri bawah layar.
+            </li>
+            <li>
+                Ketik &quot;Task Manager&quot; di kotak pencarian dan pilih Task
+                Manager dari hasil pencarian yang muncul.
+            </li>
+            <li>Pilih tab &quot;Startup&quot; di jendela Task Manager.</li>
+            <li>
+                Di sini, Anda dapat melihat daftar program yang diizinkan untuk
+                memulai bersamaan dengan Windows.
+            </li>
+            <li>
+                Jika suatu program dijalankan sebagai administrator saat
+                startup, Anda akan melihat tanda &quot;Enabled&quot; di kolom
+                &quot;Status&quot; dan &quot;High&quot; di kolom
+                &quot;Impact&quot;.
+            </li>
+            <li>
+                Anda juga dapat mengklik kanan pada nama program dan memilih
+                &quot;Properties&quot; untuk memeriksa pengaturan eksekusi
+                program.
+            </li>
+        </ol>
+        <hr />
+        <h2 id="membuat-program-startup-dengan-vbs">
+            Membuat Program Startup dengan VBS
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">createObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+msgbox <span class="hljs-string">&quot;selesai&quot;</span>
+
+objShell.run <span class="hljs-string">&quot;notepad.exe&quot;</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">True</span>
+</code></pre>
+        <p>
+            argument ke 2 &gt; 1 &gt; menunjukkan program harus dijalankan
+            secara tersembunyi (hidden)
+        </p>
+        <p>
+            argument ke 3 &gt; false &gt; menunjukkan bahwa script VBS tidak
+            boleh menunggu program selesai dijalankan.
+        </p>
+        <p>Selanjutnya :</p>
+        <ol>
+            <li>
+                Simpan file sebagai berkas dengan ekstensi &quot;.vbs&quot;.
+                Misalnya, Anda dapat menyimpannya sebagai
+                &quot;startup.vbs&quot;.
+            </li>
+            <li>
+                Pindahkan berkas .vbs yang sudah dibuat ke folder Startup di
+                menu Start. Anda bisa akses folder tersebut dengan mengetikkan
+                &quot;shell:startup&quot; pada search bar pada Windows 10.
+            </li>
+            <li>
+                Restart komputer Anda dan program yang dijalankan pada startup
+                akan berjalan secara otomatis.
+            </li>
+        </ol>
+        <hr />
+        <h2 id="penjelasan-lengkap-mengenai-argumen-2-dan-3">
+            Penjelasan lengkap mengenai argumen 2 dan 3
+        </h2>
+        <p>
+            Argumen kedua menentukan opsi jendela program yang dijalankan,
+            dengan nilai yang berbeda menunjukkan berbagai opsi tampilan
+            jendela, sebagai berikut:
+        </p>
+        <ul>
+            <li>0 : menjalankan program dengan tampilan normal</li>
+            <li>1 : menjalankan program secara tersembunyi atau hidden</li>
+            <li>2 : menjalankan program secara maksimized (penuh layar)</li>
+            <li>3 : menjalankan program secara minimized (dalam taskbar)</li>
+        </ul>
+        <p>
+            argumen ketiga menunjukkan apakah skrip VBS harus menunggu hingga
+            program yang dijalankan saat startup selesai dijalankan..
+        </p>
+        <p>
+            <strong>True</strong> : Jika Anda ingin skrip VBS menunggu program
+            selesai dijalankan sebelum melanjutkan eksekusi.
+        </p>
+        <p>
+            <strong>False</strong> : jika Anda ingin skrip VBS melanjutkan
+            eksekusi tanpa menunggu program selesai dijalankan.
+        </p>
+    </body>
+</html>

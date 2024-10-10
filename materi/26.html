@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>With Command</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="with-command">With Command</h1>
+        <h2 id="basic">Basic</h2>
+        <pre><code class="language-vbs"><span class="hljs-built_in">CreateObject</span>(WScript.shell).run <span class="hljs-string">&quot;cmd.exe&quot;</span>
+</code></pre>
+        <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(WScript.shell)
+objShell.run <span class="hljs-string">&quot;cmd.exe&quot;</span>
+</code></pre>
+        <h2 id="with">With</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">with</span> <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+.run <span class="hljs-string">&quot;cmd.exe&quot;</span>
+.run <span class="hljs-string">&quot;mspaint.exe&quot;</span>
+.run <span class="hljs-string">&quot;notepad.exe&quot;</span>
+.SendKeys <span class="hljs-string">&quot;Hello Syiber&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">With</span>
+</code></pre>
+        <h2 id="wscript">Wscript</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">with</span> WScript
+.echo <span class="hljs-string">&quot;Hello&quot;</span>
+.echo <span class="hljs-string">&quot;Second&quot;</span>
+.Sleep <span class="hljs-number">3000</span>
+.echo <span class="hljs-string">&quot;finished&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">With</span>
+</code></pre>
+        <hr />
+        <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+<span class="hljs-keyword">With</span> WScript
+    .echo <span class="hljs-string">&quot;Hello&quot;</span>
+    objShell.run <span class="hljs-string">&quot;cmd.exe&quot;</span>
+    .echo <span class="hljs-string">&quot;Second&quot;</span>
+    .Sleep <span class="hljs-number">3000</span>
+    .Echo <span class="hljs-string">&quot;finished&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">With</span>
+</code></pre>
+    </body>
+</html>

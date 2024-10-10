@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Verical Horizontal Spacing</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="verical-horizontal-spacing">Verical Horizontal Spacing</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs">vbLf
+
+vbTab
+</code></pre>
+    <h2 id="vblf">vbLf</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Message 1&quot;</span> &amp; vbLf &amp; <span class="hljs-string">&quot;Message 2 Message 3&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\4\1.webp" alt="1" />
+    </p>
+    <h2 id="vbtab">vbTab</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Message 1&quot;</span> &amp; vbLf &amp; <span class="hljs-string">&quot;Mes&quot;</span> &amp; vbTab &amp; <span class="hljs-string">&quot;sage 2 Message 3&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\4\2.webp" alt="2" />
+    </p>
+    <h2 id="2-vblf">2 vbLf</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Message 1&quot;</span> &amp; vbLf &amp; vbLf &amp; <span class="hljs-string">&quot;Mes&quot;</span> &amp; vbTab &amp; <span class="hljs-string">&quot;sage 2 &quot;</span> &amp; vbLf &amp; <span class="hljs-string">&quot; Message 3&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\4\3.webp" alt="3" />
+    </p>
+    <h2 id="chr">chr()</h2>
+    <pre><code class="language-vbs"><span class="hljs-built_in">chr</span>(<span class="hljs-number">10</span>) = vbLf
+<span class="hljs-built_in">chr</span>(<span class="hljs-number">9</span>) = vbTab
+</code></pre>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Message 1&quot;</span> &amp; <span class="hljs-built_in">chr</span>(<span class="hljs-number">10</span>) &amp; vbLf &amp; <span class="hljs-string">&quot;Mes&quot;</span> &amp; <span class="hljs-built_in">Chr</span>(<span class="hljs-number">9</span>) &amp; <span class="hljs-string">&quot;sage 2 &quot;</span> &amp; vbLf &amp; <span class="hljs-string">&quot; Message 3&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\4\4.webp" alt="4" />
+    </p>
+</body>
+
+</html>

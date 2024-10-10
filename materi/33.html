@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Functions</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="functions">Functions</h1>
+        <h2 id="contoh">Contoh</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fn, ln
+
+fn = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Firstname: &quot;</span>)
+ln = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Lastname: &quot;</span>)
+
+MsgBox <span class="hljs-string">&quot;Fullname is: &quot;</span> &amp; AddFunct(fn, ln)
+
+<span class="hljs-keyword">Function</span> AddFunct(value1, value2)
+    <span class="hljs-keyword">dim</span> fullname
+    fullname = value1 &amp; <span class="hljs-string">&quot; &quot;</span> &amp; value2
+    AddFunct = fullname
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+        <h2 id="menggunakan-sub">Menggunakan Sub</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fn, ln
+
+fn = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Firstname: &quot;</span>)
+ln = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Lastname: &quot;</span>)
+
+<span class="hljs-keyword">call</span> AddFunct(fn, ln)
+
+<span class="hljs-keyword">sub</span> AddFunct(value1, value2)
+    <span class="hljs-keyword">dim</span> total
+    total = value1 &amp; <span class="hljs-string">&quot; &quot;</span> &amp; value2
+    MsgBox <span class="hljs-string">&quot;Your name is: &quot;</span> &amp; total
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+</code></pre>
+        <h2 id="example-program">Example Program</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+
+MsgBox <span class="hljs-string">&quot;Your name is: &quot;</span> &amp; AddFunct(<span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Firstname: &quot;</span>), <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Lastname: &quot;</span>))
+MsgBox <span class="hljs-string">&quot;Your value is: &quot;</span> &amp; AddFunct(<span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;First value: &quot;</span>), <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Second value: &quot;</span>))
+
+
+<span class="hljs-keyword">Function</span> AddFunct(value1, value2)
+    <span class="hljs-keyword">dim</span> total
+
+    <span class="hljs-keyword">if</span> I<span class="hljs-built_in">sNumeric</span>(value1) <span class="hljs-keyword">And</span> I<span class="hljs-built_in">sNumeric</span>(value1) <span class="hljs-keyword">then</span>
+        total = <span class="hljs-built_in">CInt</span>(value1) + <span class="hljs-built_in">CInt</span>(value2)
+        AddFunct = total
+    <span class="hljs-keyword">else</span>
+        total = value1 &amp; <span class="hljs-string">&quot; &quot;</span> &amp; value2
+        AddFunct = total
+    <span class="hljs-keyword">End</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+    </body>
+</html>

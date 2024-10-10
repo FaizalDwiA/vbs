@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Make Your Computer Talk Speak</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="make-your-computer-talk-speak">
+            Make Your Computer Talk Speak
+        </h1>
+        <h2 id="basic">Basic</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> voice : <span class="hljs-keyword">set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+
+voice.rate = <span class="hljs-number">-2</span> <span class="hljs-comment">&#x27;kecepatan</span>
+voice.speak <span class="hljs-string">&quot;Hello my name is syiber&quot;</span> <span class="hljs-comment">&#x27;text</span>
+</code></pre>
+        <h2 id="menggunakan-variabel">Menggunakan Variabel</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> voice : <span class="hljs-keyword">set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+<span class="hljs-keyword">dim</span> text
+
+text = <span class="hljs-string">&quot;My name is black&quot;</span>
+
+voice.rate = <span class="hljs-number">-2</span>
+voice.speak text
+</code></pre>
+        <h2 id="inputbox">Inputbox</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> voice : <span class="hljs-keyword">set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+
+voice.rate = <span class="hljs-number">-2</span>
+voice.speak <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Enter what you want him to say: &quot;</span>)
+</code></pre>
+        <hr />
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> voice : <span class="hljs-keyword">set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+<span class="hljs-keyword">dim</span> text
+
+text = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Enter what you want him to say: &quot;</span>)
+
+voice.rate = <span class="hljs-number">-2</span>
+voice.speak text
+</code></pre>
+        <h2 id="input-sampai-klik-cancel">Input Sampai Klik Cancel</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> voice : <span class="hljs-keyword">set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+<span class="hljs-keyword">dim</span> speak
+
+voice.rate = <span class="hljs-number">-2</span>
+
+<span class="hljs-keyword">do</span>
+    speak = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Enter what you want him to say: &quot;</span>)
+    voice.speak speak
+<span class="hljs-keyword">loop</span> until <span class="hljs-built_in">IsEmpty</span>(speak)
+</code></pre>
+    </body>
+</html>

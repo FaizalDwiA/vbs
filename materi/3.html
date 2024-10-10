@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>If Else Then Statements</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="if-else-then-statements">If Else Then Statements</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">If</span> variable = x <span class="hljs-keyword">then</span>
+    code here
+<span class="hljs-keyword">ElseIf</span> variable = c <span class="hljs-keyword">Then</span>
+    code here
+<span class="hljs-keyword">Else</span>
+    code here
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <h2 id="contoh">Contoh</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> birth
+
+birth = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Is it your birthday?&quot;</span>, vbYes + vbQuestion, <span class="hljs-string">&quot;Tell me&quot;</span>)
+<span class="hljs-keyword">if</span> birth = vbYes <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Happy Birthday!&quot;</span>, vbInformation
+<span class="hljs-keyword">else</span>
+    MsgBox <span class="hljs-string">&quot;Oops, my bad.&quot;</span>, vbCritical
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\3\1.webp" alt="1" />
+    </p>
+    <blockquote>
+        <p>Jika diklik <strong>Yes</strong></p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\3\2.webp" alt="2" />
+    </p>
+    <blockquote>
+        <p>Jika diklik <strong>No</strong></p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\3\3.webp" alt="3" />
+    </p>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> a
+
+a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Guess a Button&quot;</span>, vbAbortRetryIgnore)
+
+<span class="hljs-keyword">If</span> a = vbRetry <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\3\4.webp" alt="4" />
+    </p>
+    <blockquote>
+        <p>jika diklik retry</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\3\5.webp" alt="5" />
+    </p>
+    <h2 id="elseif">ElseIf</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> a
+
+a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Guess a Button&quot;</span>, vbAbortRetryIgnore)
+
+<span class="hljs-keyword">If</span> a = vbRetry <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+<span class="hljs-keyword">ElseIf</span> a = vbIgnore <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+    <blockquote>
+        <p>jika diklik ignore</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\3\6.webp" alt="6" />
+    </p>
+    <h2 id="else">Else</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> a
+
+a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Guess a Button&quot;</span>, vbAbortRetryIgnore)
+
+<span class="hljs-keyword">If</span> a = vbRetry <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+<span class="hljs-keyword">Else</span>
+    MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+    <blockquote>
+        <p>jika diklik selain retry</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\3\6.webp" alt="6" />
+    </p>
+    <h2 id="or">OR</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> a
+
+a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Guess a Button&quot;</span>, vbAbortRetryIgnore)
+
+<span class="hljs-keyword">If</span> a = vbRetry <span class="hljs-keyword">or</span> a = vbAbort <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+<span class="hljs-keyword">Else</span>
+    MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+    <blockquote>
+        <p>diklik retry atau abort : correct diklik ignore : wrong</p>
+    </blockquote>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> a
+
+a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Guess a Button&quot;</span>, vbAbortRetryIgnore)
+
+<span class="hljs-keyword">If</span> a = vbRetry <span class="hljs-keyword">or</span> a = vbAbort <span class="hljs-keyword">or</span> a = vbIgnore <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+<span class="hljs-keyword">Else</span>
+    MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+    <h2 id="and">AND</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">Dim</span> a
+
+a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Guess a Button&quot;</span>, vbAbortRetryIgnore)
+
+<span class="hljs-keyword">If</span> a = vbRetry <span class="hljs-keyword">and</span> a = vbAbort <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+<span class="hljs-keyword">Else</span>
+    MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+</body>
+
+</html>

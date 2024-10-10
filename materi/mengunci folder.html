@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Mengunci Foder dengan Visual Basic</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="mengunci-foder-dengan-visual-basic">
+            Mengunci Foder dengan Visual Basic
+        </h1>
+        <p>
+            Anda dapat menggunakan skrip VBS (Visual Basic Script) untuk
+            mengunci folder di sistem Windows. Berikut adalah contoh skrip VBS
+            yang dapat Anda gunakan untuk mengunci folder:
+        </p>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+<span class="hljs-keyword">Set</span> objFolder = objShell.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Pilih folder yang ingin dikunci:&quot;</span>, <span class="hljs-number">0</span>)
+<span class="hljs-keyword">If</span> objFolder <span class="hljs-built_in">Is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">Then</span>
+    WScript.Quit
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+<span class="hljs-keyword">Set</span> objFolderItem = objFolder.Self
+strFolderName = objFolderItem.Path
+<span class="hljs-keyword">Set</span> objFSO = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">If</span> objFSO.FolderExists(strFolderName) <span class="hljs-keyword">Then</span>
+    <span class="hljs-keyword">Set</span> objFolder = objFSO.GetFolder(strFolderName)
+    objFolder.Attributes = <span class="hljs-number">2</span>
+    WScript.Echo <span class="hljs-string">&quot;Folder &quot;</span> &amp; strFolderName &amp; <span class="hljs-string">&quot; telah dikunci.&quot;</span>
+<span class="hljs-keyword">Else</span>
+    WScript.Echo strFolderName &amp; <span class="hljs-string">&quot; tidak ditemukan.&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+        <p>
+            Skrip ini akan membuka jendela dialog pemilih folder, meminta Anda
+            untuk memilih folder yang ingin dikunci, dan kemudian mengubah
+            atribut folder menjadi &quot;sembunyikan&quot; sehingga folder
+            tersebut tidak terlihat dalam eksplorator file. Untuk membuka
+            kembali folder, Anda dapat menggunakan skrip yang sama, tetapi
+            mengubah atribut folder menjadi normal.
+        </p>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+<span class="hljs-keyword">Set</span> objFolder = objShell.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Pilih folder yang ingin dibuka kunci:&quot;</span>, <span class="hljs-number">0</span>)
+<span class="hljs-keyword">If</span> objFolder <span class="hljs-built_in">Is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">Then</span>
+    WScript.Quit
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+<span class="hljs-keyword">Set</span> objFolderItem = objFolder.Self
+strFolderName = objFolderItem.Path
+<span class="hljs-keyword">Set</span> objFSO = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">If</span> objFSO.FolderExists(strFolderName) <span class="hljs-keyword">Then</span>
+    <span class="hljs-keyword">Set</span> objFolder = objFSO.GetFolder(strFolderName)
+    objFolder.Attributes = <span class="hljs-number">0</span>
+    WScript.Echo <span class="hljs-string">&quot;Folder &quot;</span> &amp; strFolderName &amp; <span class="hljs-string">&quot; telah dibuka kunci.&quot;</span>
+<span class="hljs-keyword">Else</span>
+    WScript.Echo strFolderName &amp; <span class="hljs-string">&quot; tidak ditemukan.&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+        <p>
+            Anda dapat menyimpan kedua skrip ini dalam file teks dengan ekstensi
+            .vbs dan menjalankannya dengan mengklik dua kali pada file tersebut.
+            Pastikan bahwa Anda menjalankan skrip dengan hak akses administrator
+            untuk memastikan bahwa Anda memiliki izin untuk mengubah atribut
+            folder.
+        </p>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+<span class="hljs-keyword">Set</span> objFSO = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+strFolder = objShell.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Pilih folder yang ingin dikunci:&quot;</span>, <span class="hljs-number">0</span>).Self.Path
+<span class="hljs-keyword">If</span> objFSO.FolderExists(strFolder) <span class="hljs-keyword">Then</span>
+    <span class="hljs-keyword">Set</span> objFolder = objFSO.GetFolder(strFolder)
+    <span class="hljs-keyword">Set</span> objFolderItem = objShell.<span class="hljs-keyword">NameSpace</span>(objFolder.Path)
+    <span class="hljs-keyword">If</span> <span class="hljs-built_in">Not</span> objFolderItem <span class="hljs-built_in">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">Then</span> <span class="hljs-comment">&#x27;tambahkan perintah kondisional</span>
+        strNewName = InputBox(<span class="hljs-string">&quot;Masukkan sandi untuk mengunci folder &quot;</span> &amp; objFolder.Name &amp; <span class="hljs-string">&quot;:&quot;</span>, <span class="hljs-string">&quot;Kunci Folder&quot;</span>)
+        <span class="hljs-keyword">If</span> strNewName &lt;&gt; <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">Then</span>
+            objFolderItem.CopyHere objFolder.Path, <span class="hljs-number">&amp;H80</span>
+            <span class="hljs-keyword">Set</span> objFolderItem = objShell.<span class="hljs-keyword">NameSpace</span>(objFolder.Path &amp; <span class="hljs-string">&quot;:Encryptable&quot;</span>)
+            objFolderItem.MoveHere objFolder.Path, <span class="hljs-number">&amp;H100</span>
+            objFolderItem.MoveHere objFolder.Path &amp; <span class="hljs-string">&quot;.{21EC2020-3AEA-1069-A2DD-08002B30309D}&quot;</span>, <span class="hljs-number">&amp;H100</span>
+            <span class="hljs-keyword">Set</span> objFile = objFSO.CreateTextFile(objFolder.Path &amp; <span class="hljs-string">&quot;.{21EC2020-3AEA-1069-A2DD-08002B30309D}\Locker.bat&quot;</span>)
+            objFile.WriteLine <span class="hljs-string">&quot;@ECHO OFF&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;title Folder Private&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if EXIST &quot;&quot;Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}&quot;&quot; goto UNLOCK&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if NOT EXIST Private goto MDLOCKER&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;:CONFIRM&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Apakah Anda yakin ingin mengunci folder? (Y/N)&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;set/p &quot;&quot;cho=&gt;&quot;&quot;&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if %cho%==Y goto LOCK&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if %cho%==y goto LOCK&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if %cho%==n goto END&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if %cho%==N goto END&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Silakan masukkan Y atau N.&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;goto CONFIRM&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;:LOCK&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;ren Private &quot;&quot;Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}&quot;&quot;&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;attrib +h +s &quot;&quot;Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}&quot;&quot;&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Folder terkunci.&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;goto END&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;:UNLOCK&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Masukkan sandi untuk membuka kunci folder.&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;set/p &quot;&quot;pass=&gt;&quot;&quot;&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;if NOT %pass%== &quot;</span> &amp; strNewName &amp; <span class="hljs-string">&quot; goto FAIL&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;attrib -h -s &quot;&quot;Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}&quot;&quot;&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;ren &quot;&quot;Control Panel.{21EC2020-3AEA-1069-A2DD-08002B30309D}&quot;&quot; Private&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Folder berhasil dibuka kunci.&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;goto END&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;:FAIL&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Sandi salah.&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;goto END&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;:MDLOCKER&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;md Private&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;echo Folder berhasil dibuat.&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;goto END&quot;</span>
+            objFile.WriteLine <span class="hljs-string">&quot;:END&quot;</span>
+            objFile.Close
+            <span class="hljs-keyword">Set</span> objFile = <span class="hljs-literal">Nothing</span>
+            WScript.Echo <span class="hljs-string">&quot;Folder &quot;</span> &amp; objFolder.Name &amp; <span class="hljs-string">&quot; berhasil dikunci dengan sandi &quot;</span> &amp; strNewName &amp; <span class="hljs-string">&quot;.&quot;</span>
+        <span class="hljs-keyword">Else</span>
+            WScript.Echo <span class="hljs-string">&quot;Sandi tidak valid.&quot;</span>
+        <span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+    <span class="hljs-keyword">Else</span>
+        MsgBox <span class="hljs-string">&quot;Terjadi kesalahan saat mencoba mengunci folder.&quot;</span>, vbCritical, <span class="hljs-string">&quot;Kunci Folder&quot;</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">Else</span>
+    WScript.Echo <span class="hljs-string">&quot;Folder tidak ditemukan.&quot;</span>
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+</code></pre>
+        <h2 id="berhasil">Berhasil</h2>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+<span class="hljs-keyword">Set</span> objFolder = objShell.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Pilih folder yang akan dikunci:&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+<span class="hljs-keyword">If</span> objFolder <span class="hljs-built_in">Is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">Then</span>
+    Wscript.Quit
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+strFolder = objFolder.ParentFolder.ParseName(objFolder.Title).Path
+<span class="hljs-keyword">Set</span> objFolder = <span class="hljs-literal">Nothing</span>
+<span class="hljs-keyword">Set</span> objShell = <span class="hljs-literal">Nothing</span>
+
+strPassword = InputBox(<span class="hljs-string">&quot;Masukkan kata sandi untuk mengunci folder:&quot;</span>)
+<span class="hljs-keyword">If</span> strPassword = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">Then</span>
+    Wscript.Quit
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span>
+
+<span class="hljs-keyword">Set</span> objFolder = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>).GetFolder(strFolder)
+strFolderName = objFolder.Name 
+<span class="hljs-keyword">Set</span> objFolder = <span class="hljs-literal">Nothing</span>
+
+<span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;WScript.Shell&quot;</span>)
+strCommand = <span class="hljs-string">&quot;cmd /c ren &quot;</span> &amp; Chr(<span class="hljs-number">34</span>) &amp; strFolder &amp; Chr(<span class="hljs-number">34</span>) &amp; <span class="hljs-string">&quot; &quot;</span> &amp; Chr(<span class="hljs-number">34</span>) &amp; strFolderName &amp; <span class="hljs-string">&quot;.{ED7BA470-8E54-465E-825C-99712043E01C}&quot;</span> &amp; Chr(<span class="hljs-number">34</span>)
+objShell.Run strCommand, <span class="hljs-number">0</span>, <span class="hljs-literal">True</span>
+
+<span class="hljs-keyword">Set</span> objShell = <span class="hljs-literal">Nothing</span>
+
+<span class="hljs-keyword">Set</span> objFolder = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>).GetFolder(strFolder &amp; <span class="hljs-string">&quot;.{ED7BA470-8E54-465E-825C-99712043E01C}&quot;</span>)
+strFolder = objFolder.Path
+<span class="hljs-keyword">Set</span> objFolder = <span class="hljs-literal">Nothing</span>
+
+<span class="hljs-keyword">Set</span> objShell = CreateObject(<span class="hljs-string">&quot;WScript.Shell&quot;</span>)
+strCommand = <span class="hljs-string">&quot;cmd /c attrib +h &quot;</span> &amp; Chr(<span class="hljs-number">34</span>) &amp; strFolder &amp; Chr(<span class="hljs-number">34</span>)
+objShell.Run strCommand, <span class="hljs-number">0</span>, <span class="hljs-literal">True</span>
+
+<span class="hljs-keyword">Set</span> objShell = <span class="hljs-literal">Nothing</span>
+
+strMessage = <span class="hljs-string">&quot;Folder &quot;</span> &amp; strFolderName &amp; <span class="hljs-string">&quot; telah dikunci dengan kata sandi &quot;</span> &amp; strPassword &amp; <span class="hljs-string">&quot;.&quot;</span>
+MsgBox strMessage, vbInformation, <span class="hljs-string">&quot;Folder Terkunci&quot;</span>
+</code></pre>
+    </body>
+</html>

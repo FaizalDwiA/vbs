@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Command Prompt Argument</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="command-prompt-argument">Command Prompt Argument</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> args, arg
+
+<span class="hljs-keyword">set</span> args = WScript.Arguments
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> arg  <span class="hljs-keyword">in</span> args
+    MsgBox arg
+<span class="hljs-keyword">Next</span>
+</code></pre>
+    <h2 id="cara-memanggil">Cara Memanggil</h2>
+    <p><img src="file:///d:\Project\vbs\asset\img\39\1.webp" alt="1" /></p>
+    <p>Jika memanggil ada spasi</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\39\2.webp" alt="2" /></p>
+    <h2 id="memasukkan-ke-variabel">Memasukkan ke variabel</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> args, arg, list
+
+<span class="hljs-keyword">set</span> args = WScript.Arguments
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> arg  <span class="hljs-keyword">in</span> args
+    list = list &amp; arg &amp; vbLf
+<span class="hljs-keyword">Next</span>
+
+MsgBox list
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\39\3.webp" alt="3" /></p>
+    <h2 id="solusi-jika-tidak-diisi-argumentsnya">
+        Solusi Jika Tidak Diisi Argumentsnya
+    </h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> args, arg, list
+
+<span class="hljs-keyword">set</span> args = WScript.Arguments
+
+<span class="hljs-keyword">if</span> args.Count = <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+    WScript.echo <span class="hljs-string">&quot;no arguments&quot;</span>
+    WScript.Quit
+<span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> arg  <span class="hljs-keyword">in</span> args
+        list = list &amp; arg &amp; vbLf
+    <span class="hljs-keyword">Next</span>
+
+    MsgBox list
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\39\4.webp" alt="4" /></p>
+    <h2 id="membatasi-minimal-jumlah-arguments">
+        Membatasi Minimal Jumlah Arguments
+    </h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> args, arg, list
+
+<span class="hljs-keyword">set</span> args = WScript.Arguments
+
+<span class="hljs-keyword">if</span> args.Count = <span class="hljs-number">3</span> <span class="hljs-keyword">then</span>
+    WScript.echo <span class="hljs-string">&quot;no arguments&quot;</span>
+    WScript.Quit
+<span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> arg  <span class="hljs-keyword">in</span> args
+        list = list &amp; arg &amp; vbLf
+    <span class="hljs-keyword">Next</span>
+
+    MsgBox list
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <h2 id="mengambil-arguments-berdasarkan-urutan">
+        Mengambil Arguments Berdasarkan Urutan
+    </h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fname, lname, age
+
+fname = WScript.Arguments(<span class="hljs-number">0</span>)
+lname = WScript.Arguments(<span class="hljs-number">1</span>)
+age = WScript.Arguments(<span class="hljs-number">2</span>)
+
+MsgBox age
+</code></pre>
+    <h2 id="menghitung-isi-folder-drive">Menghitung Isi Folder Drive</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, drives, drive
+
+<span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> drives = WScript.Arguments
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> drive <span class="hljs-keyword">in</span> drives
+    MsgBox fso.GetFolder(drive &amp; <span class="hljs-string">&quot;:\&quot;</span>).subFolders.count, vbOKOnly, <span class="hljs-string">&quot;Folder in &quot;</span> &amp; drive
+<span class="hljs-keyword">Next</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\39\5.webp" alt="5" /></p>
+</body>
+
+</html>

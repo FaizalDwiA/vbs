@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Replace Lines Replace Command</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="replace-lines-replace-command">
+            Replace Lines Replace Command
+        </h1>
+        <p>Mengganti teks di baris mana</p>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, cd, cd2, objC, objRd, objWr, lineCount, i, before, after, current, change
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+cd = <span class="hljs-built_in">Replace</span>(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;syiber.txt&quot;</span>)
+cd2 = <span class="hljs-built_in">Replace</span>(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;new.txt&quot;</span>)
+
+fso.CreateTextFile cd2
+
+<span class="hljs-keyword">set</span> objC = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+lineCount = <span class="hljs-number">0</span>
+<span class="hljs-keyword">do</span> until objC.AtEndOfStream
+    lineCount = lineCount + <span class="hljs-number">1</span>
+    objC.SkipLine
+<span class="hljs-keyword">Loop</span>
+
+objC.Close
+
+<span class="hljs-keyword">set</span> objRd = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">for</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> lineCount
+    <span class="hljs-keyword">if</span> i &lt; <span class="hljs-number">5</span> <span class="hljs-keyword">then</span>
+        before = objRd.ReadLine
+        <span class="hljs-keyword">call</span> oText
+    <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">5</span> <span class="hljs-keyword">Then</span>
+        current = objRd.ReadLine
+        <span class="hljs-keyword">call</span> cText
+    <span class="hljs-keyword">elseif</span> i &gt; <span class="hljs-number">5</span> <span class="hljs-keyword">then</span>
+        after = objRd.ReadAll
+        <span class="hljs-keyword">call</span> nText
+        <span class="hljs-keyword">exit</span> <span class="hljs-keyword">for</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">Next</span>
+
+objRd.close
+
+fso.CopyFile cd2, cd, <span class="hljs-literal">True</span>
+
+fso.DeleteFile cd2
+
+<span class="hljs-keyword">sub</span> oText
+    <span class="hljs-keyword">set</span> objWr = fso.OpenTextFile(cd2, <span class="hljs-number">8</span>)
+    objWr.WriteLine before
+    objWr.Close
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">sub</span> cText
+    change = <span class="hljs-built_in">Replace</span>(current, <span class="hljs-string">&quot;syiber&quot;</span>, <span class="hljs-string">&quot;thunder&quot;</span>)
+    <span class="hljs-keyword">set</span> objWr = fso.OpenTextFile(cd2, <span class="hljs-number">8</span>)
+    objWr.WriteLine change
+    objWr.Close
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">sub</span> nText
+    <span class="hljs-keyword">set</span> objWr = fso.OpenTextFile(cd2, <span class="hljs-number">8</span>)
+    objWr.WriteLine after
+    objWr.Close
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+</code></pre>
+    </body>
+</html>

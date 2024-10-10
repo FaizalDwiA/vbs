@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>For Each Next Loops</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="for-each-next-loops">For Each Next Loops</h1>
+        <h2 id="basic-for">Basic For</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> n
+
+<span class="hljs-keyword">for</span> n = <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> <span class="hljs-number">4</span>
+    MsgBox <span class="hljs-string">&quot;Looping&quot;</span>
+<span class="hljs-keyword">next</span>
+
+MsgBox <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+        <h2 id="exit-for">Exit For</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> n
+
+<span class="hljs-keyword">for</span> n = <span class="hljs-number">0</span> <span class="hljs-keyword">to</span> <span class="hljs-number">4</span>
+    <span class="hljs-keyword">if</span> n = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">Exit</span> <span class="hljs-keyword">For</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    MsgBox <span class="hljs-string">&quot;Looping&quot;</span>
+<span class="hljs-keyword">next</span>
+
+MsgBox <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+        <h2 id="mengetahui-isi-file-dari-sebuah-folder-dengan-for-each">
+            Mengetahui Isi File dari sebuah Folder dengan For Each
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, folder, files
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> folder = fso.GetFolder(<span class="hljs-string">&quot;C:\Users\Program Is Fun\downloads\faizal\&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> files <span class="hljs-keyword">in</span> folder.files
+    MsgBox files.name
+<span class="hljs-keyword">next</span>
+</code></pre>
+        <h2 id="mengetahui-ukuran-dari-sub-folder">
+            Mengetahui Ukuran dari sub Folder
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, folder, sf
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> folder = fso.GetFolder(<span class="hljs-string">&quot;C:\Users\Program Is Fun\downloads\faizal\&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> sf <span class="hljs-keyword">in</span> folder.SubFolders
+    MsgBox sf.size
+<span class="hljs-keyword">next</span>
+</code></pre>
+        <h2 id="mengetahui-nama-dan-ukuran-folder">
+            Mengetahui Nama dan Ukuran Folder
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, folder, sf
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> folder = fso.GetFolder(<span class="hljs-string">&quot;C:\Users\Program Is Fun\downloads\faizal\&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> sf <span class="hljs-keyword">in</span> folder.SubFolders
+    MsgBox <span class="hljs-string">&quot;Name: &quot;</span> &amp; sf.name &amp; vbLf &amp; _
+            <span class="hljs-string">&quot;Ukuran: &quot;</span> &amp; sf.Size
+<span class="hljs-keyword">next</span>
+</code></pre>
+        <h2 id="pengkondisian">Pengkondisian</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, folder, sf
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> folder = fso.GetFolder(<span class="hljs-string">&quot;C:\Users\Program Is Fun\downloads\faizal\&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> sf <span class="hljs-keyword">in</span> folder.SubFolders
+    <span class="hljs-keyword">if</span> sf.name = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">Exit</span> <span class="hljs-keyword">for</span>
+    <span class="hljs-keyword">else</span>
+        MsgBox sf.Name
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">next</span>
+</code></pre>
+    </body>
+</html>

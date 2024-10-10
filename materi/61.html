@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Join Mutidimensional Arrays</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$=\#gh-light-mode-only],
+        .vscode-light img[src$=\#gh-dark-mode-only],
+        .vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+        .vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+    <style>
+        :root {
+            --color-note: #0969da;
+            --color-tip: #1a7f37;
+            --color-warning: #9a6700;
+            --color-severe: #bc4c00;
+            --color-caution: #d1242f;
+            --color-important: #8250df;
+        }
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-note: #2f81f7;
+                --color-tip: #3fb950;
+                --color-warning: #d29922;
+                --color-severe: #db6d28;
+                --color-caution: #f85149;
+                --color-important: #a371f7;
+            }
+        }
+    </style>
+    <style>
+        .markdown-alert {
+            padding: 0.5rem 1rem;
+            margin-bottom: 16px;
+            color: inherit;
+            border-left: .25em solid #888;
+        }
+
+        .markdown-alert>:first-child {
+            margin-top: 0
+        }
+
+        .markdown-alert>:last-child {
+            margin-bottom: 0
+        }
+
+        .markdown-alert .markdown-alert-title {
+            display: flex;
+            font-weight: 500;
+            align-items: center;
+            line-height: 1
+        }
+
+        .markdown-alert .markdown-alert-title .octicon {
+            margin-right: 0.5rem;
+            display: inline-block;
+            overflow: visible !important;
+            vertical-align: text-bottom;
+            fill: currentColor;
+        }
+
+        .markdown-alert.markdown-alert-note {
+            border-left-color: var(--color-note);
+        }
+
+        .markdown-alert.markdown-alert-note .markdown-alert-title {
+            color: var(--color-note);
+        }
+
+        .markdown-alert.markdown-alert-important {
+            border-left-color: var(--color-important);
+        }
+
+        .markdown-alert.markdown-alert-important .markdown-alert-title {
+            color: var(--color-important);
+        }
+
+        .markdown-alert.markdown-alert-warning {
+            border-left-color: var(--color-warning);
+        }
+
+        .markdown-alert.markdown-alert-warning .markdown-alert-title {
+            color: var(--color-warning);
+        }
+
+        .markdown-alert.markdown-alert-tip {
+            border-left-color: var(--color-tip);
+        }
+
+        .markdown-alert.markdown-alert-tip .markdown-alert-title {
+            color: var(--color-tip);
+        }
+
+        .markdown-alert.markdown-alert-caution {
+            border-left-color: var(--color-caution);
+        }
+
+        .markdown-alert.markdown-alert-caution .markdown-alert-title {
+            color: var(--color-caution);
+        }
+    </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="join-mutidimensional-arrays">Join Mutidimensional Arrays</h1>
+    <h2 id="contoh-1">contoh 1</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Dim</span> multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)
+
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;First:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Last:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;Age:&quot;</span>
+
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;Faizal&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Alfarizi&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;21&quot;</span>
+
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;Syiber&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Black&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;25&quot;</span>
+
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">0</span>) <span class="hljs-string">&quot;Reck&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Disk&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;19&quot;</span>
+
+MsgBox mJoin(multD, <span class="hljs-string">&quot;&quot;</span>)
+
+<span class="hljs-comment">&#x27;join </span>
+<span class="hljs-keyword">Function</span> mJoin(list, delimiter)
+    <span class="hljs-keyword">For</span> <span class="hljs-keyword">Each</span> item <span class="hljs-keyword">In</span> list
+        allitems = allitems &amp; item &amp; delimiter
+    <span class="hljs-keyword">Next</span>
+    mJoin allitems
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil :</p>
+    </blockquote>
+    <p><img src="file:///d:\PJ_Project\vbs\Simpan\asset\img\materi\61\2.webp" alt="2"></p>
+    <h2 id="contoh-2">Contoh 2</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Dim</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;First:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Last:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;Age:&quot;</span>
+
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;Faizal&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Alfarizi&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;21&quot;</span>
+
+multD(<span class="hljs-number">2.0</span>) = <span class="hljs-string">&quot;Syiber&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Black&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;25&quot;</span>
+
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;Reck&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Disk&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;19&quot;</span>
+
+MsgBox MJoin(multD, <span class="hljs-string">&quot;&quot;</span>)
+
+<span class="hljs-comment">&#x27;join </span>
+
+<span class="hljs-keyword">Function</span> mJoin(List, delimiter)
+    <span class="hljs-keyword">For</span> <span class="hljs-keyword">Each</span> item <span class="hljs-keyword">In</span> list allitems
+        allitems &amp; item &amp; delimiter
+    <span class="hljs-keyword">Next</span>
+    mJoin = allitems
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+    <p><img src="file:///d:\PJ_Project\vbs\Simpan\asset\img\materi\61\4.webp" alt="4"></p>
+    <hr>
+    <pre><code class="language-vb"><span class="hljs-keyword">Dim</span> multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;First:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) - <span class="hljs-string">&quot;Last:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;Age:&quot;</span>
+
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) - <span class="hljs-string">&quot;Faizal&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Alfarizi&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;21&quot;</span>
+
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>) = <span class="hljs-string">&quot;Syiber&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>) <span class="hljs-string">&quot;Black&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;25&quot;</span>
+
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">6</span>) = <span class="hljs-string">&quot;Reck&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Disk&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;19&quot;</span>
+
+MsgBox Split(mJoin(multD, <span class="hljs-string">&quot;,&quot;</span>), <span class="hljs-string">&quot;,&quot;</span>)(<span class="hljs-number">0</span>)
+
+<span class="hljs-comment">&#x27; Join </span>
+
+<span class="hljs-keyword">Function</span> mJoin(List, delimiter)
+    <span class="hljs-keyword">For</span> <span class="hljs-keyword">Each</span> item <span class="hljs-keyword">In</span> list
+        allitems = allitems &amp; item &amp; delimiter
+    <span class="hljs-keyword">Next</span>
+    mJoin = allitems
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+    <p><img src="file:///d:\PJ_Project\vbs\Simpan\asset\img\materi\61\6.webp" alt="6"></p>
+    <blockquote>
+        <p>hasilnya sama :</p>
+    </blockquote>
+    <pre><code class="language-vb"><span class="hljs-keyword">Dim</span> multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;First:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) - <span class="hljs-string">&quot;Last:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;Age:&quot;</span>
+
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) - <span class="hljs-string">&quot;Faizal&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Alfarizi&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;21&quot;</span>
+
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>) = <span class="hljs-string">&quot;Syiber&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>) <span class="hljs-string">&quot;Black&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;25&quot;</span>
+
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">6</span>) = <span class="hljs-string">&quot;Reck&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Disk&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;19&quot;</span>
+
+joined Split(mJoin(multD, <span class="hljs-string">&quot;,&quot;</span>), <span class="hljs-string">&quot;,&quot;</span>)
+MsgBox joined(<span class="hljs-number">0</span>)
+
+<span class="hljs-comment">&#x27; Join </span>
+
+<span class="hljs-keyword">Function</span> mJoin(List, delimiter)
+    <span class="hljs-keyword">For</span> <span class="hljs-keyword">Each</span> item <span class="hljs-keyword">In</span> list
+        allitems = allitems &amp; item &amp; delimiter
+    <span class="hljs-keyword">Next</span>
+    mJoin = allitems
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+    <hr>
+    <pre><code class="language-vb"><span class="hljs-keyword">Dim</span> multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>)
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>) = <span class="hljs-string">&quot;First:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">1</span>) - <span class="hljs-string">&quot;Last:&quot;</span>
+multD(<span class="hljs-number">0</span>, <span class="hljs-number">2</span>) <span class="hljs-string">&quot;Age:&quot;</span>
+
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">0</span>) - <span class="hljs-string">&quot;Faizal&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Alfarizi&quot;</span>
+multD(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;21&quot;</span>
+
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">8</span>) = <span class="hljs-string">&quot;Syiber&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">1</span>) <span class="hljs-string">&quot;Black&quot;</span>
+multD(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;25&quot;</span>
+
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">6</span>) = <span class="hljs-string">&quot;Reck&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">1</span>) = <span class="hljs-string">&quot;Disk&quot;</span>
+multD(<span class="hljs-number">3</span>, <span class="hljs-number">2</span>) = <span class="hljs-string">&quot;19&quot;</span>
+
+MsgBox mDJoin(multD)
+
+<span class="hljs-comment">&#x27; Join for displaying</span>
+<span class="hljs-keyword">Function</span> mDJoin(List)
+    <span class="hljs-keyword">For</span> r = <span class="hljs-number">0</span> <span class="hljs-keyword">To</span> UBound(list, <span class="hljs-number">1</span>) : <span class="hljs-keyword">For</span> c = <span class="hljs-number">0</span> <span class="hljs-keyword">To</span> UBound(multD, <span class="hljs-number">2</span>)
+            <span class="hljs-keyword">If</span> c = <span class="hljs-number">0</span> <span class="hljs-built_in">And</span> <span class="hljs-built_in">Not</span> r <span class="hljs-number">0</span> <span class="hljs-keyword">Then</span>
+                allitems = allitems &amp; vbLf
+            <span class="hljs-keyword">End</span> <span class="hljs-keyword">If</span> allitems
+            allitems &amp; list(r, c) &amp; vbTab
+        <span class="hljs-keyword">Next</span> : <span class="hljs-keyword">Next</span>
+
+    mDJoin = allitems
+<span class="hljs-keyword">End</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil :</p>
+    </blockquote>
+    <p><img src="file:///d:\PJ_Project\vbs\Simpan\asset\img\materi\61\9.webp" alt="9"></p>
+
+
+
+</body>
+
+</html>

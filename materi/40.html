@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Date Functions</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="date-functions">Date Functions</h1>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <h3 id="interval-values">Interval Values</h3>
+    <ul>
+        <li>d = Day</li>
+        <li>m = Mount</li>
+        <li>yyyy = Year</li>
+        <li>w = Weekday</li>
+        <li>y = Day of Year</li>
+        <li>ww = Week of Week</li>
+        <li>q = Quarter</li>
+        <li>h = Hour</li>
+        <li>n = Minute</li>
+        <li>s = Second</li>
+    </ul>
+    <h2 id="date">Date</h2>
+    <pre><code class="language-vb"><span class="hljs-comment">&#x27; Date()</span>
+    MsgBox <span class="hljs-type">Date</span>(), , <span class="hljs-string">&quot;Current Date&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\1.webp" alt="1" /></p>
+    <h2 id="time">Time</h2>
+    <pre><code class="language-vb"><span class="hljs-comment">&#x27; Date()</span>
+    MsgBox Time(), , <span class="hljs-string">&quot;Current time&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\2.webp" alt="2" /></p>
+    <h2 id="now">Now</h2>
+    <pre><code class="language-vb"><span class="hljs-comment">&#x27; Date()</span>
+    MsgBox Now(), , <span class="hljs-string">&quot;Current now&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\3.webp" alt="3" /></p>
+    <h2 id="date-add">Date Add</h2>
+    <pre><code class="language-vb"><span class="hljs-comment">&#x27; DateAdd(interval, amount, date)</span>
+    MsgBox DateAdd(<span class="hljs-string">&quot;m&quot;</span>, <span class="hljs-number">3</span>, <span class="hljs-type">Date</span>) ,, <span class="hljs-string">&quot;+3 Mount&quot;</span>
+    MsgBox DateAdd(<span class="hljs-string">&quot;yyyy&quot;</span>, <span class="hljs-number">8</span>, <span class="hljs-type">Date</span>) ,, <span class="hljs-string">&quot;+8 Years&quot;</span>
+    MsgBox DateAdd(<span class="hljs-string">&quot;d&quot;</span>, -<span class="hljs-number">7</span>, <span class="hljs-type">Date</span>) ,, <span class="hljs-string">&quot;-7 Day&quot;</span>
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\4.webp" alt="4" /></p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\5.webp" alt="5" /></p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\6.webp" alt="6" /></p>
+    <h2 id="date-diff">Date Diff</h2>
+    <pre><code class="language-vb"><span class="hljs-comment">&#x27; DateDiff(interval, date1, date2)</span>
+    MsgBox DateDiff(<span class="hljs-string">&quot;s&quot;</span>, DateAdd(<span class="hljs-string">&quot;n&quot;</span>, -<span class="hljs-number">5</span>, now), now)    ,, <span class="hljs-string">&quot;Second -5min Ago&quot;</span>
+    MsgBox DateDiff(<span class="hljs-string">&quot;ww&quot;</span>, <span class="hljs-string">&quot;01-01-2014&quot;</span>, now)            ,, <span class="hljs-string">&quot;Week of Year&quot;</span>
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\7.webp" alt="7" /></p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\8.webp" alt="8" /></p>
+    <h2 id="date-part">Date Part</h2>
+    <pre><code class="language-vb"><span class="hljs-comment">&#x27; DatePart(interval, date1, date2)</span>
+    MsgBox DatePart(<span class="hljs-string">&quot;w&quot;</span>,now)                ,, <span class="hljs-string">&quot;Weekday of today&#x27;s date&quot;</span>
+    MsgBox DatePart(<span class="hljs-string">&quot;q&quot;</span>, <span class="hljs-string">&quot;1-apr-98&quot;</span>, now)   ,, <span class="hljs-string">&quot;Quarter of Appril 1, 1998&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\9.webp" alt="9" /></p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\10.webp" alt="10" /></p>
+    <h2 id="dll">DLL</h2>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\11.webp" alt="11" /></p>
+    <p><img src="file:///d:\Project\vbs\asset\img\40\12.webp" alt="12" /></p>
+    <h2 id="contoh">Contoh</h2>
+    <pre><code class="language-vb">MsgBox Mount(<span class="hljs-string">&quot;3-Feb-2023&quot;</span>)      <span class="hljs-comment">&#x27;2</span>
+MsgBox Mount(<span class="hljs-string">&quot;April 7, 1999&quot;</span>)   <span class="hljs-comment">&#x27;4</span>
+MsgBox Mount(<span class="hljs-string">&quot;1-Apr-95&quot;</span>)        <span class="hljs-comment">&#x27;4</span>
+MsgBox Mount(<span class="hljs-string">&quot;May-02-1996&quot;</span>)     <span class="hljs-comment">&#x27;5</span>
+MsgBox Mount(<span class="hljs-string">&quot;7-03-2021&quot;</span>)       <span class="hljs-comment">&#x27;7</span>
+MsgBox Mount(<span class="hljs-string">&quot;22/12/2000&quot;</span>)      <span class="hljs-comment">&#x27;12</span>
+MsgBox Mount(<span class="hljs-string">&quot;10/25/2000&quot;</span>)      <span class="hljs-comment">&#x27;10</span>
+MsgBox Mount(<span class="hljs-string">&quot;08-07-2000&quot;</span>)      <span class="hljs-comment">&#x27;8</span>
+</code></pre>
+</body>
+
+</html>

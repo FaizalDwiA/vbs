@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Get File Folder Attribute</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="get-file-folder-attribute">Get File Folder Attribute</h1>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <p>
+        <img src="..\asset\img\materi\28\1.webp" alt="1" />
+    </p>
+    <h2 id="menambah-readonly">Menambah ReadOnly</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, file
+
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> file = fso.GetFile(<span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+file.Attributes = file.Attributes + <span class="hljs-number">1</span>
+
+WScript.Echo <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+    <h2 id="menghapus-readonly">Menghapus ReadOnly</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, file
+
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> file = fso.GetFile(<span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+file.Attributes = file.Attributes - <span class="hljs-number">1</span>
+
+WScript.Echo <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+    <h2 id="mengecek-attribute-hidden">Mengecek Attribute Hidden</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, file
+
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> file = fso.GetFile(<span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+<span class="hljs-keyword">if</span> file.Attributes <span class="hljs-keyword">And</span> <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+    file.Attributes = file.Attributes - <span class="hljs-number">2</span>
+<span class="hljs-keyword">Else</span>
+    file.Attributes = file.Attributes + <span class="hljs-number">2</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+
+WScript.Echo <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+    <h2 id="mengecek-apakah-sebuah-folder">
+        Mengecek Apakah Sebuah Folder
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, file
+
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> file = fso.GetFile(<span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+<span class="hljs-keyword">if</span> file.Attributes <span class="hljs-keyword">And</span> <span class="hljs-number">16</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Yes it is a folder&quot;</span>
+<span class="hljs-keyword">Else</span>
+    MsgBox <span class="hljs-string">&quot;No it isn&#x27;t a folder&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+
+WScript.Echo <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+    <h2 id="membuat-archived">Membuat Archived</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, file, question
+
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> file = fso.GetFile(<span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+<span class="hljs-keyword">if</span> file.Attributes <span class="hljs-keyword">And</span> <span class="hljs-number">32</span> <span class="hljs-keyword">then</span>
+    question = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Switch?&quot;</span>, vbYesNo, <span class="hljs-string">&quot;Item is Archived.&quot;</span>)
+    <span class="hljs-keyword">if</span> question = vbYes <span class="hljs-keyword">then</span>
+        file.Attributes = file.Attributes - <span class="hljs-number">32</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">Else</span>
+    question = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Switch?&quot;</span>, vbYesNo, <span class="hljs-string">&quot;Item is NOT Archived.&quot;</span>)
+    <span class="hljs-keyword">if</span> question = vbYes <span class="hljs-keyword">then</span>
+        file.Attributes = file.Attributes + <span class="hljs-number">32</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+
+WScript.Echo <span class="hljs-string">&quot;Finished&quot;</span>
+</code></pre>
+</body>
+
+</html>

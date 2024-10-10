@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Read Files OpenTextFile</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="read-files-opentextfile">Read Files OpenTextFile</h1>
+    <h2 id="basic">Basic</h2>
+    <ul>
+        <li>oFile.Read()</li>
+        <li>oFile.ReadLine</li>
+        <li>oFile.ReadAll</li>
+        <li>oFile.Close</li>
+    </ul>
+    <h2 id="read">Read()</h2>
+    <p>Membaca Perhuruf</p>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+msgbox oFile.Read(<span class="hljs-number">1</span>)
+
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\20\1.webp" alt="1" />
+    </p>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+msgbox oFile.Read(<span class="hljs-number">12</span>)
+
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\20\2.webp" alt="2" />
+    </p>
+    <h2 id="readline">ReadLine</h2>
+    <p>Membaca Perbaris</p>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+msgbox oFile.ReadLine
+
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\20\3.webp" alt="3" />
+    </p>
+    <h2 id="readall">ReadAll</h2>
+    <p>Membaca semua isinya</p>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+msgbox oFile.ReadAll
+
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\20\4.webp" alt="4" />
+    </p>
+    <h2 id="menggunakan-for-untuk-menampilkan-huruf">
+        Menggunakan for untuk menampilkan huruf
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, a
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">for</span> a = <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">3</span>
+    MsgBox oFile.Read(<span class="hljs-number">1</span>)
+<span class="hljs-keyword">next</span>
+
+MsgBox <span class="hljs-string">&quot;done&quot;</span>
+</code></pre>
+    <h2 id="menampilkan-perbaris-dengan-for">
+        Menampilkan perbaris dengan for
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, a
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">for</span> a = <span class="hljs-number">1</span> <span class="hljs-keyword">to</span> <span class="hljs-number">2</span>
+    MsgBox oFile.ReadLine
+<span class="hljs-keyword">next</span>
+
+MsgBox <span class="hljs-string">&quot;done&quot;</span>
+</code></pre>
+    <h2 id="atendofstream">atEndOfstream</h2>
+    <p>Menampilkan semua huruf sampai selesai</p>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, a
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, <span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">do</span> Until oFile.AtEndOfStream
+    MsgBox oFile.Read(<span class="hljs-number">12</span>)
+<span class="hljs-keyword">Loop</span>
+
+MsgBox <span class="hljs-string">&quot;done&quot;</span>
+</code></pre>
+</body>
+
+</html>

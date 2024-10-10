@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Select Case</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="select-case">Select Case</h1>
+        <h2 id="basic">Basic</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Select</span> <span class="hljs-keyword">Case</span>
+
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">select</span>
+</code></pre>
+        <h2 id="contoh">Contoh</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> a, b, c
+
+a = <span class="hljs-string">&quot;syiber&quot;</span>
+b = <span class="hljs-string">&quot;black&quot;</span>
+
+<span class="hljs-keyword">Select</span> <span class="hljs-keyword">Case</span> a
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;syiber&quot;</span>
+        MsgBox <span class="hljs-string">&quot;1&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;black&quot;</span>
+        MsgBox <span class="hljs-string">&quot;2&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Select</span>
+</code></pre>
+        <h2 id="memasukkan-password">Memasukkan Password</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;What is your password&quot;</span>)
+
+<span class="hljs-keyword">Select</span> <span class="hljs-keyword">Case</span> pass
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;syiber&quot;</span>
+        MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;&quot;</span>
+        MsgBox <span class="hljs-string">&quot;Please fill out&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Select</span>
+</code></pre>
+        <h2 id="case-else">Case Else</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;What is your password&quot;</span>)
+
+<span class="hljs-keyword">Select</span> <span class="hljs-keyword">Case</span> pass
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;syiber&quot;</span>
+        MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;&quot;</span>
+        MsgBox <span class="hljs-string">&quot;Please fill out&quot;</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-keyword">else</span>
+        MsgBox <span class="hljs-string">&quot;Incorrect&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Select</span>
+</code></pre>
+    </body>
+</html>

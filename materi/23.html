@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Replace worda Replace Command</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="replace-worda-replace-command">
+            Replace worda Replace Command
+        </h1>
+        <h2 id="basic">Basic</h2>
+        <pre><code class="language-vbs"><span class="hljs-built_in">replace</span>(string, FindSubString, ReplaceSubString)
+</code></pre>
+        <h2 id="example">Example</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell, a
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+a = <span class="hljs-string">&quot;&quot;&quot;&quot;</span> &amp; <span class="hljs-built_in">Replace</span>(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;syiber.txt&quot;</span>) &amp; <span class="hljs-string">&quot;&quot;&quot;&quot;</span>
+
+objShell.run a
+</code></pre>
+        <h2 id="program-mengganti-isi-file">Program Mengganti Isi File</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, file, cd, text
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+cd = <span class="hljs-built_in">Replace</span>(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+text = file.ReadAll
+file.Close
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">2</span>)
+file.Write <span class="hljs-built_in">Replace</span>(text, <span class="hljs-string">&quot;syiber&quot;</span>, <span class="hljs-string">&quot;thunder&quot;</span>)
+file.Close
+
+WScript.Echo <span class="hljs-string">&quot;Complete.&quot;</span>
+</code></pre>
+        <h2 id="program-mengganti-isi-file-dengan-input">
+            Program Mengganti Isi File Dengan Input
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, isi, cd, text, pilih, objR, objW, ganti
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+cd = <span class="hljs-built_in">Replace</span>(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+<span class="hljs-keyword">set</span> objR = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+isi = objR.ReadAll
+
+pilih = <span class="hljs-built_in">InputBox</span>(isi, <span class="hljs-string">&quot;Replace: Enter a word or phrase you want to replace&quot;</span>)
+text = <span class="hljs-built_in">InputBox</span>(isi, <span class="hljs-string">&quot;Replace &gt;&gt; &quot;</span> &amp; pilih &amp; <span class="hljs-string">&quot;&lt;&lt; with:&quot;</span>)
+
+ganti = <span class="hljs-built_in">Replace</span>(isi, pilih, text)
+objR.Close
+
+<span class="hljs-keyword">set</span> objW = fso.OpenTextFile(cd, <span class="hljs-number">2</span>)
+objW.Write ganti
+objW.Close
+
+<span class="hljs-keyword">set</span> objR = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+MsgBox objR.ReadAll, vbInformation, <span class="hljs-string">&quot;Here is your new text&quot;</span>
+
+WScript.Quit
+</code></pre>
+    </body>
+</html>

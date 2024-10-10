@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>SendKeys</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$=\#gh-light-mode-only],
+        .vscode-light img[src$=\#gh-dark-mode-only] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css">
+    <link rel="stylesheet" href="../asset/css/highlight.min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="sendkeys">SendKeys</h1>
+    <h2 id="basic">Basic</h2>
+    <ul>
+        <li>untuk menulis keyboard secara otomatis sesuai perintah</li>
+    </ul>
+    <pre><code class="language-vb">CreateObject(<span class="hljs-string">&quot;wscript.shell&quot;</span>).sendkeys <span class="hljs-string">&quot;&quot;</span>
+</code></pre>
+    <hr>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+x.run <span class="hljs-string">&quot;notepad.exe&quot;</span>
+
+x.sendkeys <span class="hljs-string">&quot;Hello there&quot;</span>
+</code></pre>
+    <hr>
+    <h2 id="mengjeda-sementara">mengjeda sementara</h2>
+    <ul>
+        <li>1000 : 1 detik</li>
+    </ul>
+    <pre><code class="language-vb"><span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+x.run <span class="hljs-string">&quot;notepad.exe&quot;</span>
+
+wscript.sleep <span class="hljs-number">3000</span>
+x.sendkeys <span class="hljs-string">&quot;Hello there&quot;</span>
+</code></pre>
+    <hr>
+    <h2 id="enter">Enter</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+x.run <span class="hljs-string">&quot;notepad.exe&quot;</span>
+
+wscript.sleep <span class="hljs-number">3000</span>
+x.sendkeys <span class="hljs-string">&quot;Hello there&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;{enter}&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;how are you doing&quot;</span>
+</code></pre>
+    <hr>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <p><img src="..\asset\img\materi\8\1.webp" alt="1"><br>
+        <img src="..\asset\img\materi\8\2.webp" alt="2"><br>
+        <img src="..\asset\img\materi\8\3.webp" alt="3">
+    </p>
+    <hr>
+    <h2 id="program-sekalian-save">Program sekalian save</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+x.run <span class="hljs-string">&quot;notepad.exe&quot;</span>
+
+wscript.sleep <span class="hljs-number">3000</span>
+x.sendkeys <span class="hljs-string">&quot;Hello there&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;{enter}&quot;</span>
+x.sendkeys <span class="hljs-string">&quot;how are you doing&quot;</span>
+
+x.sendkeys <span class="hljs-string">&quot;%fs&quot;</span>
+wscript.sleep <span class="hljs-number">500</span>
+x.sendkeys <span class="hljs-string">&quot;test.vbs&quot;</span>
+wscript.sleep <span class="hljs-number">300</span>
+x.sendkeys <span class="hljs-string">&quot;{enter}&quot;</span>
+
+</code></pre>
+    <hr>
+    <h2 id="program-mengetikkan-sesuatu-dibrowser">Program mengetikkan sesuatu dibrowser</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">option</span> <span class="hljs-keyword">explicit</span>
+<span class="hljs-keyword">dim</span> filler, x
+
+<span class="hljs-keyword">set</span> x = createobject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+filler = inputbox(<span class="hljs-string">&quot;What to search?&quot;</span>)
+
+x.run <span class="hljs-string">&quot;chrome.exe&quot;</span>
+wscript.sleep <span class="hljs-number">2000</span>
+x.sendkeys filler
+x.sendkeys <span class="hljs-string">&quot;{enter}&quot;</span>
+</code></pre>
+
+
+
+</body>
+
+</html>

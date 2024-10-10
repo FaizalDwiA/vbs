@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>File Folder Exits</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="file-folder-exits">File Folder Exits</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs"><span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+</code></pre>
+    <h2 id="nilai--value">Nilai / Value</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+MsgBox fso.FileExists(<span class="hljs-string">&quot;C:\Users\PIF\Desktop\coba.txt&quot;</span>)
+</code></pre>
+    <blockquote>
+        <p>Hasil :</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\14\1.webp" alt="1" />
+    </p>
+    <h2 id="if-else">If Else</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">if</span> fso.FileExists(<span class="hljs-string">&quot;C:\Users\PIF\Desktop\coba.txt&quot;</span>) <span class="hljs-keyword">Then</span>
+    WScript.echo <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    WScript.echo <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <h2 id="folder-exits">Folder Exits</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">if</span> fso.FolderExists(<span class="hljs-string">&quot;C:\Users\PIF\Desktop\PIF&quot;</span>) <span class="hljs-keyword">Then</span>
+    WScript.echo <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    WScript.echo <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <h2 id="if-not">If not</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> fso.FolderExists(<span class="hljs-string">&quot;C:\Users\PIF\Desktop\PIF&quot;</span>) <span class="hljs-keyword">Then</span>
+    WScript.echo <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">else</span>
+    WScript.echo <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">if</span> fso.FolderExists(<span class="hljs-string">&quot;C:\Users\PIF\Desktop\PIF&quot;</span>) <span class="hljs-keyword">Then</span>
+    WScript.echo <span class="hljs-string">&quot;yes&quot;</span>
+<span class="hljs-keyword">elseif</span> <span class="hljs-keyword">not</span> fso.FolderExists(<span class="hljs-string">&quot;C:\Users\PIF\Desktop\PIF&quot;</span>) <span class="hljs-keyword">Then</span>
+    WScript.echo <span class="hljs-string">&quot;no&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+</body>
+
+</html>

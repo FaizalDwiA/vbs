@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Cancel InputBox</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="cancel-inputbox">Cancel InputBox</h1>
+        <h2 id="ketika-diklik-cancel--silang-langsung-keluar">
+            Ketika Diklik Cancel / Silang Langsung Keluar
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Please type your password:&quot;</span>, <span class="hljs-string">&quot;Verification&quot;</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">TypeName</span>(pass) = <span class="hljs-string">&quot;Empty&quot;</span> <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">ElseIf</span> pass = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Please do not leave field blank.&quot;</span>
+    <span class="hljs-keyword">ElseIf</span> pass = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+        <span class="hljs-keyword">exit</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">else</span>
+        MsgBox <span class="hljs-string">&quot;Please enter the correct password&quot;</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">loop</span>
+</code></pre>
+        <hr />
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Please type your password:&quot;</span>, <span class="hljs-string">&quot;Verification&quot;</span>)
+    <span class="hljs-keyword">if</span> <span class="hljs-built_in">IsEmpty</span>(pass) <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">ElseIf</span> pass = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Please do not leave field blank.&quot;</span>
+    <span class="hljs-keyword">ElseIf</span> pass = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+        <span class="hljs-keyword">exit</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">else</span>
+        MsgBox <span class="hljs-string">&quot;Please enter the correct password&quot;</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">loop</span>
+</code></pre>
+        <h2 id="tidak-bisa-keluar-kecuali-isi-password-dengan-benar">
+            Tidak Bisa Keluar Kecuali Isi Password Dengan Benar
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Please type your password:&quot;</span>, <span class="hljs-string">&quot;Verification&quot;</span>)
+    <span class="hljs-keyword">If</span> pass = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+        <span class="hljs-keyword">exit</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">ElseIf</span> pass = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Please do not leave field blank.&quot;</span>
+    <span class="hljs-keyword">elseif</span> <span class="hljs-built_in">IsEmpty</span>(pass) <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">else</span>
+        MsgBox <span class="hljs-string">&quot;Please enter the correct password&quot;</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">loop</span>
+</code></pre>
+    </body>
+</html>

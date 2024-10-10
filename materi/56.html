@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Change The Voice Gender</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="change-the-voice-gender">Change The Voice Gender</h1>
+    <h2 id="cara-mengganti-secara-manual-dipengaturan">
+        Cara Mengganti Secara Manual Dipengaturan
+    </h2>
+    <p>buka :</p>
+    <ol>
+        <li>Control Panel</li>
+        <li>Ease Of Access</li>
+        <li>Ease Of Access Center</li>
+        <li>Klik Start Narrator</li>
+    </ol>
+    <p><img src="..\asset\img\materi\56\1.webp" alt="1" /></p>
+    <h2 id="berikut-ini-adalah-daftar-properti-lengkap-yang-tersedia-pada-objek-spvoice-di-vbs">
+        Berikut Ini Adalah Daftar Properti Lengkap Yang Tersedia Pada Objek
+        Spvoice Di Vbs:
+    </h2>
+    <ol>
+        <li>
+            <p>
+                Voice Mengatur atau mengambil objek suara tertentu yang akan
+                digunakan untuk sintesis suara.
+            </p>
+        </li>
+        <li>
+            <p>Volume Mengatur atau mengambil tingkat volume suara.</p>
+        </li>
+        <li>
+            <p>
+                Rate Mengatur atau mengambil tingkat kecepatan suara dalam
+                persentase.
+            </p>
+        </li>
+        <li>
+            <p>
+                AllowAudioOutputFormatChangesOnNextSet Mengatur atau
+                mengambil nilai boolean yang menunjukkan apakah suara dapat
+                mengubah format output audio pada panggilan
+                &quot;SetOutput&quot;.
+            </p>
+        </li>
+        <li>
+            <p>
+                AllowVoiceFormatChangesOnNextSet Mengatur atau mengambil
+                nilai boolean yang menunjukkan apakah suara dapat mengubah
+                format output suara pada panggilan &quot;SetOutput&quot;.
+            </p>
+        </li>
+        <li>
+            <p>
+                AlertBoundary Mengatur atau mengambil tipe batas peringatan
+                untuk peristiwa batas di dalam teks.
+            </p>
+        </li>
+        <li>
+            <p>
+                AlertOutput Mengatur atau mengambil nilai boolean yang
+                menunjukkan apakah suara harus memberikan peringatan output.
+            </p>
+        </li>
+        <li>
+            <p>
+                EventInterests Mengatur atau mengambil nilai integer yang
+                menunjukkan jenis peristiwa suara yang tertarik oleh
+                aplikasi.
+            </p>
+        </li>
+        <li>
+            <p>
+                Priority Mengatur atau mengambil nilai integer yang
+                menunjukkan prioritas suara.
+            </p>
+        </li>
+        <li>
+            <p>
+                Resume Mengatur atau mengambil nilai boolean yang
+                menunjukkan apakah suara dapat melanjutkan sintesis suara
+                setelah dijeda.
+            </p>
+        </li>
+        <li>
+            <p>
+                SpeakCompleteEvent Mengatur atau mengambil objek kejadian
+                yang akan dipanggil setelah sintesis suara selesai.
+            </p>
+        </li>
+        <li>
+            <p>
+                SpeakProgressEvent Mengatur atau mengambil objek kejadian
+                yang akan dipanggil selama sintesis suara sedang
+                berlangsung.
+            </p>
+        </li>
+        <li>
+            <p>
+                SpeakStartEvent Mengatur atau mengambil objek kejadian yang
+                akan dipanggil sebelum sintesis suara dimulai.
+            </p>
+        </li>
+        <li>
+            <p>
+                VoicePurgeEvent Mengatur atau mengambil objek kejadian yang
+                akan dipanggil saat suara dihapus.
+            </p>
+        </li>
+        <li>
+            <p>
+                WaitUntilDone Mengatur atau mengambil nilai boolean yang
+                menunjukkan apakah aplikasi harus menunggu sampai sintesis
+                suara selesai sebelum melanjutkan eksekusi skrip.
+            </p>
+        </li>
+        <li>
+            <p>
+                XMLText Mengatur atau mengambil teks yang mengandung elemen
+                XML yang mempengaruhi sintesis suara.
+            </p>
+        </li>
+    </ol>
+    <h2 id="mengatur-volume">Mengatur Volume</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;SAPI.SpVoice&quot;</span>)
+voice.Volume = <span class="hljs-number">100</span> <span class="hljs-comment">&#x27;tingkat volume suara adalah 100%</span>
+voice.Speak <span class="hljs-string">&quot;Halo, apa kabar?&quot;</span> <span class="hljs-comment">&#x27;mengucapkan teks dengan volume yang telah diatur sebelumnya</span>
+</code></pre>
+    <h2 id="mengambil-nilai-volume">Mengambil nilai volume</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;SAPI.SpVoice&quot;</span>)
+volume = voice.Volume <span class="hljs-comment">&#x27;mengambil nilai tingkat volume suara</span>
+MsgBox <span class="hljs-string">&quot;Tingkat volume suara saat ini adalah &quot;</span> &amp; volume
+</code></pre>
+    <h2 id="mengatur-tingkat-kecepatan-suara">
+        Mengatur tingkat kecepatan suara:
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;SAPI.SpVoice&quot;</span>)
+voice.Rate = <span class="hljs-number">0</span> <span class="hljs-comment">&#x27;tingkat kecepatan suara adalah normal</span>
+voice.Speak <span class="hljs-string">&quot;Halo, apa kabar?&quot;</span> <span class="hljs-comment">&#x27;mengucapkan teks dengan kecepatan yang telah diatur sebelumnya</span>
+</code></pre>
+    <h2 id="mengambil-nilai-tingkat-kecepatan-suara">
+        Mengambil nilai tingkat kecepatan suara:
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;SAPI.SpVoice&quot;</span>)
+rate = voice.Rate <span class="hljs-comment">&#x27;mengambil nilai tingkat kecepatan suara</span>
+MsgBox <span class="hljs-string">&quot;Tingkat kecepatan suara saat ini adalah &quot;</span> &amp; rate
+</code></pre>
+    <h2 id="contoh-penggunaan-allowaudiooutputformatchangesonnextset">
+        Contoh Penggunaan AllowAudioOutputFormatChangesOnNextSet
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;SAPI.SpVoice&quot;</span>)
+voice.AllowAudioOutputFormatChangesOnNextSet = <span class="hljs-literal">True</span> <span class="hljs-comment">&#x27;mengizinkan perubahan format keluaran audio pada pengaturan selanjutnya</span>
+voice.AudioOutput = <span class="hljs-string">&quot;SAF File Format&quot;</span> <span class="hljs-comment">&#x27;mengatur format keluaran audio</span>
+voice.Speak <span class="hljs-string">&quot;Halo, apa kabar?&quot;</span> <span class="hljs-comment">&#x27;mengucapkan teks dengan format keluaran audio yang telah diatur sebelumnya</span>
+
+voice.AllowAudioOutputFormatChangesOnNextSet = <span class="hljs-literal">False</span> <span class="hljs-comment">&#x27;mencegah perubahan format keluaran audio pada pengaturan selanjutnya</span>
+voice.AudioOutput = <span class="hljs-string">&quot;WAV File Format&quot;</span> <span class="hljs-comment">&#x27;mengatur format keluaran audio</span>
+voice.Speak <span class="hljs-string">&quot;Saya baik-baik saja.&quot;</span> <span class="hljs-comment">&#x27;mengucapkan teks dengan format keluaran audio yang telah diatur sebelumnya</span>
+</code></pre>
+    <h2 id="bersuara-berbeda-jenis-kelamin">
+        Bersuara Berbeda Jenis Kelamin
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> voice : <span class="hljs-keyword">set</span> voice = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+
+<span class="hljs-keyword">set</span> voice.voice = voice.getvoices.item(<span class="hljs-number">1</span>)
+voice.speak <span class="hljs-string">&quot;Hello&quot;</span>
+
+<span class="hljs-keyword">set</span> voice.voice = voice.getvoices.item(<span class="hljs-number">0</span>)
+voice.speak <span class="hljs-string">&quot;How are you&quot;</span>
+</code></pre>
+    <h2 id="percakapan-2-orang">Percakapan 2 Orang</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> black, syiber
+
+<span class="hljs-keyword">set</span> black = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+<span class="hljs-keyword">set</span> black.voice = black.getvoices.item(<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">set</span> syiber = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;sapi.spvoice&quot;</span>)
+<span class="hljs-keyword">set</span> syiber.voice = syiber.getvoices.item(<span class="hljs-number">0</span>)
+
+black.rate = <span class="hljs-number">-2</span>
+black.speak <span class="hljs-string">&quot;Syiber can i tell you a secret?&quot;</span>
+syiber.speak <span class="hljs-string">&quot;Sure Black what is it?&quot;</span>
+black.rate = <span class="hljs-number">-3</span>
+black.volume = <span class="hljs-number">100</span>
+black.speak <span class="hljs-string">&quot;I&#x27;m allergic to butterflies&quot;</span>
+</code></pre>
+</body>
+
+</html>

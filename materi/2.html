@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Message Box Constants</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="message-box-constants">Message Box Constants</h1>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <p>
+        <img src="..\asset\img\materi\2\1.webp" alt="1" />
+    </p>
+    <p>
+        <img src="..\asset\img\materi\2\2.webp" alt="2" />
+    </p>
+    <p>
+        <img src="..\asset\img\materi\2\3.webp" alt="3" />
+    </p>
+    <h2 id="constant">Constant</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Pandora Radio&quot;</span>, vbAbortRetryIgnore, <span class="hljs-string">&quot;Gadget:&quot;</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\2\4.webp" alt="4" />
+    </p>
+    <h2 id="icon">Icon</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Pandora Radio&quot;</span>, vbAbortRetryIgnore + vbExclamation, <span class="hljs-string">&quot;Gadget:&quot;</span>
+</code></pre>
+    <blockquote>
+        <p>Hasil</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\2\5.webp" alt="5" />
+    </p>
+    <h2 id="action">Action</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Pandora Radio&quot;</span>, vbAbortRetryIgnore + vbExclamation + vbDefaultButton2, <span class="hljs-string">&quot;Gadget:&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\2\6.webp" alt="6" />
+    </p>
+    <h2 id="modal">Modal</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-string">&quot;Pandora Radio&quot;</span>, vbAbortRetryIgnore + vbExclamation + vbDefaultButton2 + vbSystemModal, <span class="hljs-string">&quot;Gadget:&quot;</span>
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\2\7.webp" alt="7" />
+    </p>
+    <h2 id="output">Output</h2>
+    <pre><code class="language-vbs">a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Pandora Radio&quot;</span>, vbAbortRetryIgnore + vbExclamation + vbDefaultButton2 + vbSystemModal, <span class="hljs-string">&quot;Gadget:&quot;</span>)
+<span class="hljs-keyword">if</span> a = <span class="hljs-number">3</span> <span class="hljs-keyword">then</span> MsgBox <span class="hljs-string">&quot;Quit&quot;</span>, vbCritical
+</code></pre>
+    <blockquote>
+        <p>ketika diklik Abort</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\2\8.webp" alt="8" />
+    </p>
+    <h2 id="memisahkan-baris-agar-rapi">Memisahkan baris agar rapi</h2>
+    <blockquote>
+        <p>Menggunakan _ (underscore) diakhir kalimat</p>
+    </blockquote>
+    <pre><code class="language-vbs">a = <span class="hljs-built_in">MsgBox</span>(<span class="hljs-string">&quot;Pandora Radio&quot;</span>_
+, vbAbortRetryIgnore + vbExclamation + vbDefaultButton2 + vbSystemModal,_
+<span class="hljs-string">&quot;Gadget:&quot;</span>)
+</code></pre>
+</body>
+
+</html>

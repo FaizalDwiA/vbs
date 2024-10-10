@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Run As Administrator</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="run-as-administrator">Run As Administrator</h1>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <p><img src="..\asset\img\materi\52\1.webp" alt="1" /></p>
+    <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+objApp.shellExecute <span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-string">&quot;parm&quot;</span>, <span class="hljs-string">&quot;dire&quot;</span>, <span class="hljs-string">&quot;runas&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <h2 id="shellexecute">ShellExecute</h2>
+    <p>
+        <code>.ShellExecute</code> adalah metode dalam bahasa pemrograman
+        Visual Basic Script (VBS) yang digunakan untuk memanggil aplikasi
+        atau file eksternal dari dalam script VBS. Metode ini dapat membuka
+        file, folder, atau halaman web dalam aplikasi default yang terkait
+        dengan jenis file tersebut.
+    </p>
+    <pre><code class="language-vbs">ShellExecute(strPath, [strArguments], [strDirectory], [strOperation], [intShowMode])
+</code></pre>
+    <ul>
+        <li>
+            strPath (string) - Menunjukkan alamat file atau aplikasi yang
+            ingin dibuka.
+        </li>
+        <li>
+            strArguments (string, opsional) - Parameter tambahan yang akan
+            diteruskan ke aplikasi yang dibuka. Contohnya, jika ingin
+            membuka sebuah file Excel dan menentukan lembar kerja tertentu,
+            maka parameter ini akan berisi nama lembar kerja tersebut.
+        </li>
+        <li>
+            strDirectory (string, opsional) - Menentukan direktori kerja
+            dari aplikasi atau file yang dibuka.
+        </li>
+        <li>
+            strOperation (string, opsional) - Menentukan operasi yang ingin
+            dilakukan pada file atau aplikasi tersebut. Contohnya, jika
+            ingin membuka file dengan fitur print langsung, maka parameter
+            ini akan berisi &quot;print&quot;.
+        </li>
+        <li>
+            intShowMode (integer, opsional) - Menentukan tampilan dari
+            jendela aplikasi atau file yang dibuka. Contohnya, jika ingin
+            membuka aplikasi dengan tampilan minimasi, maka parameter ini
+            akan berisi nilai 2.
+        </li>
+    </ul>
+    <h2 id="contoh-penggunaan-shellexecute-untuk-membuka-file-pdf-menggunakan-adobe-acrobat-reader">
+        Contoh Penggunaan .Shellexecute Untuk Membuka File Pdf Menggunakan
+        Adobe Acrobat Reader
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+objShell.ShellExecute <span class="hljs-string">&quot;C:\Documents\example.pdf&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;open&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <ul>
+        <li>
+            C:\Documents\example.pdf merupakan alamat file PDF yang akan
+            dibuka
+        </li>
+        <li>
+            <code>open</code> menunjukkan bahwa aplikasi atau file tersebut
+            akan dibuka dengan menggunakan operasi default.
+        </li>
+        <li>
+            1 menunjukkan bahwa aplikasi atau file tersebut akan ditampilkan
+            dengan tampilan normal.
+        </li>
+    </ul>
+    <h2 id="contoh-penggunaan-shellexecute-dengan-parameter-tambahan-yang-diteruskan-ke-aplikasi-yang-dibuka">
+        Contoh Penggunaan .Shellexecute Dengan Parameter Tambahan Yang
+        Diteruskan Ke Aplikasi Yang Dibuka:
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+objShell.ShellExecute <span class="hljs-string">&quot;C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE&quot;</span>, <span class="hljs-string">&quot;C:\Documents\example.xlsx&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <ul>
+        <li>
+            &quot;C:\Program Files\Microsoft
+            Office\root\Office16\EXCEL.EXE&quot; merupakan alamat aplikasi
+            Excel yang akan dibuka.
+        </li>
+        <li>
+            &quot;C:\Documents\example.xlsx&quot; adalah file Excel yang
+            akan dibuka dalam aplikasi tersebut.
+        </li>
+        <li>
+            keempat &quot;&quot; menunjukkan bahwa aplikasi atau file
+            tersebut akan dibuka dengan menggunakan operasi default.
+        </li>
+        <li>
+            kelima 1 menunjukkan bahwa aplikasi atau file tersebut akan
+            ditampilkan dengan tampilan normal.
+        </li>
+    </ul>
+    <h2 id="stroperation">strOperation</h2>
+    <p>
+        strOperation adalah salah satu parameter opsional pada metode
+        .ShellExecute di VBS yang digunakan untuk menentukan operasi yang
+        akan dilakukan pada file atau aplikasi yang dibuka.
+    </p>
+    <ul>
+        <li>
+            &quot;open&quot; - Membuka file atau aplikasi menggunakan
+            program default yang terkait dengan jenis file tersebut.
+        </li>
+        <li>
+            &quot;edit&quot; - Membuka file dengan aplikasi default dan
+            memungkinkan pengguna mengedit file tersebut.
+        </li>
+        <li>
+            &quot;print&quot; - Membuka file dan langsung menampilkan
+            jendela pencetakan.
+        </li>
+        <li>
+            &quot;explore&quot; - Membuka file atau folder dalam jendela
+            explorer Windows.
+        </li>
+        <li>
+            &quot;find&quot; - Membuka jendela pencarian Windows dengan kata
+            kunci yang ditentukan.
+        </li>
+        <li>
+            &quot;properties&quot; - Menampilkan properti dari file atau
+            folder yang ditentukan.
+        </li>
+    </ul>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Shell.Application&quot;</span>)
+objShell.ShellExecute <span class="hljs-string">&quot;C:\Documents\example.docx&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;print&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <p>
+        &quot;print&quot; menunjukkan bahwa aplikasi atau file yang dibuka
+        akan langsung menampilkan jendela pencetakan. Sehingga, ketika file
+        Word example.docx dibuka, maka jendela pencetakan akan langsung
+        muncul.
+    </p>
+    <h2 id="cmd-run-as-administrator">CMD Run As Administrator</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+objApp.shellExecute <span class="hljs-string">&quot;cmd.exe&quot;</span>, , , <span class="hljs-string">&quot;runas&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <p><img src="..\asset\img\materi\52\2.webp" alt="2" /></p>
+    <h2 id="menjalankan-wscript">Menjalankan wscript</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+objApp.shellExecute <span class="hljs-string">&quot;wscript.exe&quot;</span>, <span class="hljs-string">&quot;&quot;&quot;C:\Users\Program Is Fun\Desktop\coba.vbs&quot;&quot;&quot;</span>, , <span class="hljs-string">&quot;runas&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <h2 id="menjalankan-notepad">Menjalankan Notepad</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+objApp.shellExecute <span class="hljs-string">&quot;notepad.exe&quot;</span>, <span class="hljs-string">&quot;&quot;&quot;C:\Users\Program Is Fun\Desktop\coba.vbs&quot;&quot;&quot;</span>, , <span class="hljs-string">&quot;runas&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <h2 id="menjalankan-batch">Menjalankan batch</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+objApp.shellExecute <span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-string">&quot;&quot;&quot;C:\Users\Program Is Fun\Desktop\coba.bat&quot;&quot;&quot;</span>, , <span class="hljs-string">&quot;runas&quot;</span>, <span class="hljs-number">1</span>
+</code></pre>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vbs">runas <span class="hljs-string">&quot;wscript.exe&quot;</span>, <span class="hljs-string">&quot;&quot;&quot;C:\Users\Program Is Fun\Desktop\coba.vbs&quot;&quot;&quot;</span>, <span class="hljs-number">1</span>
+runas <span class="hljs-string">&quot;&quot;&quot;C:\Users\Program Is Fun\Desktop\coba.bat&quot;&quot;&quot;</span>, <span class="hljs-string">&quot;cmd.exe&quot;</span>, <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">sub</span> runas(prog, file, show)
+    <span class="hljs-keyword">set</span> app = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+    app.shellExecute prog, file, , <span class="hljs-string">&quot;runas&quot;</span>, show
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs">runAsAdmin()
+MsgBox <span class="hljs-string">&quot;test&quot;</span>
+
+<span class="hljs-keyword">Function</span> runAsAdmin()
+    <span class="hljs-keyword">dim</span> app
+
+    <span class="hljs-keyword">if</span> WScript.Arguments.length = <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">set</span> app = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+
+        app.shellExecute <span class="hljs-string">&quot;wscript.exe&quot;</span>, <span class="hljs-string">&quot;&quot;&quot;&quot;</span> &amp; _
+            WScript.ScriptFullName &amp; <span class="hljs-string">&quot;&quot;&quot;&quot;</span>, , <span class="hljs-string">&quot;runas&quot;</span>, <span class="hljs-number">1</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+</code></pre>
+</body>
+
+</html>

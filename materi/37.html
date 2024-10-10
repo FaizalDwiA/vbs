@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Browse For Folder</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="browse-for-folder">Browse For Folder</h1>
+    <h2 id="situs-dokumentasi">Situs Dokumentasi</h2>
+    <blockquote>
+        <p>Link : <a href="http://ss64.com">http://ss64.com</a></p>
+    </blockquote>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> folder, path
+
+<span class="hljs-keyword">set</span> folder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Select Folder&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="..\asset\img\materi\37\1.webp" alt="1" /></p>
+    <h2 id="dokumentasi">Dokumentasi</h2>
+    <p><img src="..\asset\img\materi\37\2.webp" alt="2" /></p>
+    <h2 id="example-16384">Example 16384</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> folder, path
+
+<span class="hljs-keyword">set</span> folder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Select Folder&quot;</span>, <span class="hljs-number">16384</span>, <span class="hljs-number">0</span>)
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="..\asset\img\materi\37\3.webp" alt="3" /></p>
+    <h2 id="program-file">Program File</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> folder, path
+
+<span class="hljs-keyword">set</span> folder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Select Folder&quot;</span>, <span class="hljs-number">16384</span>, <span class="hljs-number">38</span>)
+</code></pre>
+    <p><img src="..\asset\img\materi\37\4.webp" alt="4" /></p>
+    <h2 id="sesuai-keinginan">Sesuai Keinginan</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> folder, path
+
+<span class="hljs-keyword">set</span> folder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Select Folder&quot;</span>, <span class="hljs-number">16384</span>, <span class="hljs-string">&quot;C:\Users\Program Is Fun\downloads&quot;</span>)
+</code></pre>
+    <p><img src="..\asset\img\materi\37\5.webp" alt="5" /></p>
+    <h2 id="mengambil-title">Mengambil Title</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> objFolder, path
+
+<span class="hljs-keyword">set</span> objFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Select Folder&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+<span class="hljs-keyword">if</span> objFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Canceled&quot;</span>
+    WScript.Quit
+<span class="hljs-keyword">else</span>
+    MsgBox objFolder.title
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="..\asset\img\materi\37\6.webp" alt="6" /></p>
+    <h2 id="mengambil-pathnya">Mengambil Pathnya</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> objFolder
+
+<span class="hljs-keyword">set</span> objFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, <span class="hljs-string">&quot;Select Folder&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+<span class="hljs-keyword">if</span> objFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Canceled&quot;</span>
+    WScript.Quit
+<span class="hljs-keyword">else</span>
+    MsgBox objFolder.self.path
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="..\asset\img\materi\37\7.webp" alt="7" /></p>
+    <h2 id="menggunakan-function">Menggunakan Function</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+
+<span class="hljs-keyword">Function</span> selectFolder(Desc)
+    <span class="hljs-keyword">set</span> selectFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, Desc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> selectFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+
+MsgBox selectFolder(<span class="hljs-string">&quot;Select folder for copying&quot;</span>).self.path
+</code></pre>
+    <p>Hasil :</p>
+    <p><img src="..\asset\img\materi\37\8.webp" alt="8" /></p>
+    <h2 id="copy-file">Copy File</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+
+<span class="hljs-keyword">Function</span> selectFolder(Desc)
+    <span class="hljs-keyword">set</span> selectFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, Desc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> selectFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+
+selectFolder(<span class="hljs-string">&quot;Copy item here: &quot;</span>).copyHere <span class="hljs-string">&quot;syiber.txt&quot;</span>
+</code></pre>
+    <h2 id="memindahkan-isi-folder">Memindahkan Isi Folder</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+
+<span class="hljs-keyword">Function</span> selectFolder(Desc)
+    <span class="hljs-keyword">set</span> selectFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, Desc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> selectFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+
+selectFolder(<span class="hljs-string">&quot;Copy item here: &quot;</span>).moveHere <span class="hljs-string">&quot;syiber.txt&quot;</span>
+</code></pre>
+    <h2 id="memindahkan-isi-dalam-folder-ke-folder-lain">
+        Memindahkan Isi Dalam Folder Ke Folder Lain
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> file
+
+<span class="hljs-keyword">Function</span> selectFolder(Desc)
+    <span class="hljs-keyword">set</span> selectFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, Desc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> selectFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+
+<span class="hljs-keyword">set</span> file = selectFolder(<span class="hljs-string">&quot;Move items:&quot;</span>).Items
+selectFolder(<span class="hljs-string">&quot;Paste items: &quot;</span>).moveHere file
+</code></pre>
+    <h2 id="melihat-isi-folder-1-per-1">Melihat Isi Folder 1 Per 1</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objApp : <span class="hljs-keyword">set</span> objApp = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;shell.application&quot;</span>)
+<span class="hljs-keyword">dim</span> item
+
+<span class="hljs-keyword">Function</span> selectFolder(Desc)
+    <span class="hljs-keyword">set</span> selectFolder = objApp.BrowseForFolder(<span class="hljs-number">0</span>, Desc, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>)
+
+    <span class="hljs-keyword">if</span> selectFolder  <span class="hljs-keyword">is</span> <span class="hljs-literal">Nothing</span> <span class="hljs-keyword">then</span>
+        WScript.Quit
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">Function</span>
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> item <span class="hljs-keyword">in</span> selectFolder(<span class="hljs-string">&quot;View Item&quot;</span>).items
+    MsgBox item.name
+<span class="hljs-keyword">next</span>
+</code></pre>
+</body>
+
+</html>

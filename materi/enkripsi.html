@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Enkripsi</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="enkripsi">Enkripsi</h1>
+        <pre><code class="language-vb"><span class="hljs-comment">&#x27;Input teks yang akan dienkripsi</span>
+strInput = InputBox(<span class="hljs-string">&quot;Masukkan teks yang akan dienkripsi:&quot;</span>)
+
+<span class="hljs-comment">&#x27;Konversi teks ke kode ASCII dan tambahkan nilai konstanta</span>
+<span class="hljs-keyword">For</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">To</span> Len(strInput)
+    intASCII = Asc(<span class="hljs-keyword">Mid</span>(strInput, i, <span class="hljs-number">1</span>))
+    intEncrypted = intASCII + <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+    strEncrypted = strEncrypted &amp; Chr(intEncrypted)
+<span class="hljs-keyword">Next</span>
+
+<span class="hljs-comment">&#x27;Tampilkan teks yang telah dienkripsi</span>
+MsgBox <span class="hljs-string">&quot;Teks yang telah dienkripsi: &quot;</span> &amp; strEncrypted
+</code></pre>
+        <p>
+            Berikut adalah penjelasan untuk setiap baris pada script tersebut:
+        </p>
+        <pre><code class="language-vb"><span class="hljs-comment">&#x27;Input teks yang akan dienkripsi</span>
+strInput = InputBox(<span class="hljs-string">&quot;Masukkan teks yang akan dienkripsi:&quot;</span>)
+</code></pre>
+        <p>
+            Pada baris pertama, kita meminta pengguna untuk memasukkan teks yang
+            akan dienkripsi dengan menggunakan fungsi InputBox. Fungsi ini akan
+            menampilkan kotak dialog yang meminta pengguna untuk memasukkan
+            sebuah teks, lalu nilai teks tersebut akan disimpan dalam variabel
+            strInput.
+        </p>
+        <pre><code class="language-vb"><span class="hljs-comment">&#x27;Konversi teks ke kode ASCII dan tambahkan nilai konstanta</span>
+<span class="hljs-keyword">For</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">To</span> Len(strInput)
+    intASCII = Asc(<span class="hljs-keyword">Mid</span>(strInput, i, <span class="hljs-number">1</span>))
+    intEncrypted = intASCII + <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+    strEncrypted = strEncrypted &amp; Chr(intEncrypted)
+<span class="hljs-keyword">Next</span>
+</code></pre>
+        <p>
+            Pada baris kedua, kita menggunakan perulangan For untuk mengambil
+            setiap karakter dalam teks yang telah dimasukkan oleh pengguna
+            menggunakan fungsi Len (untuk mendapatkan panjang teks) dan Mid
+            (untuk mengambil karakter ke-i dalam teks).
+        </p>
+        <p>
+            Fungsi Asc dan Mid digunakan pada baris intASCII = Asc(Mid(strInput,
+            i, 1)) untuk mengonversi sebuah karakter dalam teks menjadi kode
+            ASCII.
+        </p>
+        <p>
+            Fungsi Mid digunakan untuk mengambil satu karakter dalam teks.
+            Argumen pertama dari fungsi ini adalah teks yang akan diambil
+            karakternya, yaitu strInput. Argumen kedua adalah indeks karakter
+            yang akan diambil, yaitu i. Argumen ketiga menunjukkan berapa
+            karakter yang akan diambil dari indeks tersebut. Pada kasus ini,
+            kita hanya mengambil satu karakter, sehingga argumen ketiga diisi
+            dengan nilai 1.
+        </p>
+        <p>
+            Kemudian, fungsi Asc digunakan untuk mengonversi karakter tersebut
+            menjadi kode ASCII. Fungsi ini mengembalikan nilai ASCII dari
+            karakter yang diberikan sebagai argumen. Kode ASCII adalah
+            representasi numerik dari sebuah karakter dalam komputer.
+        </p>
+        <p>
+            Dengan menggunakan fungsi Mid dan Asc, kita dapat mengonversi sebuah
+            karakter dalam teks menjadi kode ASCII. Selanjutnya, kita dapat
+            melakukan operasi matematika, seperti penambahan nilai konstanta,
+            pada kode ASCII tersebut.
+        </p>
+        <p>
+            Kemudian, pada baris ketiga, kita menggunakan fungsi Asc untuk
+            mengonversi setiap karakter ke kode ASCII, yang kemudian disimpan
+            dalam variabel intASCII. Setelah itu, kita menambahkan nilai
+            konstanta tertentu (dalam contoh ini, nilai konstanta adalah 10)
+            pada setiap kode ASCII menggunakan operator penjumlahan, dan
+            menyimpan hasilnya dalam variabel intEncrypted.
+        </p>
+        <p>
+            Pada baris keempat, kita mengonversi setiap kode ASCII yang telah
+            dienkripsi kembali menjadi karakter menggunakan fungsi Chr, dan
+            menyimpan hasilnya dalam variabel strEncrypted. Kita juga
+            menggunakan operator penambahan (&amp;) untuk menggabungkan setiap
+            karakter yang telah dienkripsi.
+        </p>
+        <pre><code class="language-vb"><span class="hljs-comment">&#x27;Tampilkan teks yang telah dienkripsi</span>
+MsgBox <span class="hljs-string">&quot;Teks yang telah dienkripsi: &quot;</span> &amp; strEncrypted
+</code></pre>
+        <p>
+            Pada baris terakhir, kita menampilkan teks yang telah dienkripsi
+            menggunakan fungsi MsgBox, yang menampilkan kotak dialog dengan
+            pesan teks dan tombol OK. Pada fungsi ini, kita menggunakan operator
+            penambahan (&amp;) untuk menggabungkan teks yang menginformasikan
+            bahwa teks yang telah dienkripsi, beserta dengan teks yang telah
+            dienkripsi tersebut.
+        </p>
+        <h2 id="decripsi">Decripsi</h2>
+        <pre><code class="language-vb"><span class="hljs-comment">&#x27;Input teks yang telah dienkripsi</span>
+strEncrypted = InputBox(<span class="hljs-string">&quot;Masukkan teks yang telah dienkripsi:&quot;</span>)
+
+<span class="hljs-comment">&#x27;Konversi teks yang telah dienkripsi ke kode ASCII dan kurangi nilai konstanta</span>
+<span class="hljs-keyword">For</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">To</span> Len(strEncrypted)
+    intEncrypted = Asc(<span class="hljs-keyword">Mid</span>(strEncrypted, i, <span class="hljs-number">1</span>))
+    intDecrypted = intEncrypted - <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+    strDecrypted = strDecrypted &amp; Chr(intDecrypted)
+<span class="hljs-keyword">Next</span>
+
+<span class="hljs-comment">&#x27;Tampilkan teks yang telah didekripsi</span>
+MsgBox <span class="hljs-string">&quot;Teks yang telah didekripsi: &quot;</span> &amp; strDecrypted
+
+</code></pre>
+        <h2 id="contoh-program-enkripsi-isi-file">
+            contoh program enkripsi isi file
+        </h2>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> cmd = CreateObject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+<span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+cd = Replace(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;coba.txt&quot;</span>)
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">text</span> = file.ReadAll
+file.Close
+
+coba = InputBox(<span class="hljs-string">&quot;pilih opsi : &quot;</span> &amp; vblf &amp; <span class="hljs-string">&quot;1. Enkripsi&quot;</span> &amp; vblf &amp; <span class="hljs-string">&quot;2. Dekripsi&quot;</span>)
+MsgBox coba
+
+<span class="hljs-keyword">For</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">To</span> Len(<span class="hljs-keyword">text</span>)
+    intASCII = Asc(<span class="hljs-keyword">Mid</span>(<span class="hljs-keyword">text</span>, i, <span class="hljs-number">1</span>))
+    <span class="hljs-keyword">if</span> coba = <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">if</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">150</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">3</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">55</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">8</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">99</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">Else</span>
+            intEncrypted = intASCII + <span class="hljs-number">100</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">if</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">150</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">3</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">55</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">8</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">99</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">Else</span>
+            intEncrypted = intASCII - <span class="hljs-number">100</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    strEncrypted = strEncrypted &amp; Chr(intEncrypted)
+<span class="hljs-keyword">Next</span>
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">2</span>)
+
+file.Write strEncrypted
+file.Close
+
+WScript.Echo <span class="hljs-string">&quot;Complete.&quot;</span>
+</code></pre>
+        <h2 id="contoh-lain">Contoh lain</h2>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> cmd = CreateObject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+<span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+cd = Replace(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;img.jpg&quot;</span>)
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">text</span> = file.ReadAll
+file.Close
+
+coba = InputBox(<span class="hljs-string">&quot;pilih opsi : &quot;</span> &amp; vblf &amp; <span class="hljs-string">&quot;1. Enkripsi&quot;</span> &amp; vblf &amp; <span class="hljs-string">&quot;2. Dekripsi&quot;</span>)
+<span class="hljs-keyword">For</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">To</span> Len(<span class="hljs-keyword">text</span>)
+    intASCII = Asc(<span class="hljs-keyword">Mid</span>(<span class="hljs-keyword">text</span>, i, <span class="hljs-number">1</span>))
+
+    <span class="hljs-keyword">if</span> coba = <span class="hljs-string">&quot;1&quot;</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">if</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">150</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">3</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">55</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">8</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII + <span class="hljs-number">99</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">Else</span>
+            intEncrypted = intASCII + <span class="hljs-number">100</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">if</span> i = <span class="hljs-number">1</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">10</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">2</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">150</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">3</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">55</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">elseif</span> i = <span class="hljs-number">8</span> <span class="hljs-keyword">then</span>
+            intEncrypted = intASCII - <span class="hljs-number">99</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">Else</span>
+            intEncrypted = intASCII - <span class="hljs-number">100</span> <span class="hljs-comment">&#x27;contoh nilai konstanta: 10</span>
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+
+    <span class="hljs-keyword">if</span> intEncrypted &gt;= <span class="hljs-number">255</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">Do</span> <span class="hljs-keyword">until</span> intEncrypted &lt;= <span class="hljs-number">255</span>
+            intEncrypted = intEncrypted - <span class="hljs-number">255</span>
+        <span class="hljs-keyword">loop</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+
+    <span class="hljs-keyword">if</span> i <span class="hljs-built_in">mod</span> len(<span class="hljs-keyword">text</span>)/<span class="hljs-number">10</span> = <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+        MsgBox i
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    
+    strEncrypted = strEncrypted &amp; Chr(intEncrypted)
+<span class="hljs-keyword">Next</span>
+
+MsgBox <span class="hljs-string">&quot;ok&quot;</span>
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">2</span>)
+
+file.Write strEncrypted
+file.Close
+
+WScript.Echo <span class="hljs-string">&quot;Complete.&quot;</span>
+</code></pre>
+        <pre><code class="language-vb"><span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">set</span> cmd = CreateObject(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+<span class="hljs-keyword">Set</span> fso = CreateObject(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+cd = Replace(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;img.jpg&quot;</span>)
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">1</span>)
+<span class="hljs-keyword">text</span> = file.ReadAll
+file.Close
+
+<span class="hljs-comment">&#x27; ganti = Replace(text, &quot;ÿ&quot;, f)</span>
+MsgBox <span class="hljs-keyword">text</span>
+ganti = Replace(<span class="hljs-keyword">text</span>, <span class="hljs-string">&quot;f&quot;</span>, <span class="hljs-string">&quot;ÿ&quot;</span>)
+MsgBox ganti
+
+MsgBox <span class="hljs-string">&quot;ok&quot;</span>
+
+<span class="hljs-keyword">set</span> file = fso.OpenTextFile(cd, <span class="hljs-number">2</span>)
+
+file.Write ganti
+file.Close
+
+WScript.Echo <span class="hljs-string">&quot;Complete.&quot;</span>
+</code></pre>
+    </body>
+</html>

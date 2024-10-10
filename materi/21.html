@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Write Files OpenTextFile</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="write-files-opentextfile">Write Files OpenTextFile</h1>
+    <h2 id="basic">Basic</h2>
+    <ul>
+        <li>oFile.Write</li>
+        <li>oFile.WriteLine</li>
+        <li>oFile.WriteBlankLines()</li>
+        <li>oFile.Close</li>
+    </ul>
+    <h2 id="write">Write</h2>
+    <blockquote>
+        <p>wr = 2</p>
+    </blockquote>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+<span class="hljs-keyword">Const</span> wr = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\coba1.txt&quot;</span>, wr)
+
+oFile.Write <span class="hljs-string">&quot;Namaku Black Syiber&quot;</span>
+</code></pre>
+    <h2 id="membuat-file-jika-file-nya-tidak-ada">
+        Membuat File Jika file nya tidak ada
+    </h2>
+    <blockquote>
+        <p>True</p>
+    </blockquote>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+<span class="hljs-keyword">Const</span> wr = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>, wr, <span class="hljs-literal">True</span>)
+
+oFile.Write <span class="hljs-string">&quot;Namaku Black Syiber&quot;</span>
+</code></pre>
+    <h2 id="writeline">WriteLine</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+<span class="hljs-keyword">Const</span> wr = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>, wr, <span class="hljs-literal">True</span>)
+
+oFile.WriteLine <span class="hljs-string">&quot;Namaku Black Syiber&quot;</span>
+oFile.Write <span class="hljs-string">&quot;Dan ini Black Thunder&quot;</span>
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\21\1.webp" alt="1" />
+    </p>
+    <h2 id="writeblanklines">writeBlankLines</h2>
+    <p>Memberikan enter</p>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile
+<span class="hljs-keyword">Const</span> wr = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>, wr, <span class="hljs-literal">True</span>)
+
+oFile.WriteLine <span class="hljs-string">&quot;Namaku Black Syiber&quot;</span>
+oFile.WriteBlankLines(<span class="hljs-number">5</span>)
+oFile.Write <span class="hljs-string">&quot;Dan ini Black Thunder&quot;</span>
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\21\2.webp" alt="2" />
+    </p>
+    <h2 id="menulis-dan-menampilkan">Menulis dan Menampilkan</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, file, x
+<span class="hljs-keyword">Const</span> wr = <span class="hljs-number">2</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+file = <span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(file, wr, <span class="hljs-literal">True</span>)
+
+x = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Write to text file.&quot;</span>)
+oFile.Write x
+oFile.close
+
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(file, <span class="hljs-number">1</span>)
+
+MsgBox oFile.ReadAll
+</code></pre>
+</body>
+
+</html>

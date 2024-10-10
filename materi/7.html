@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Do Loops</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="do-loops">Do Loops</h1>
+        <h2 id="basic">Basic</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Do</span>
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-keyword">Loop</span>
+</code></pre>
+        <h2 id="keluar-dari-do-loops">Keluar dari Do Loops</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Do</span>
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+    <span class="hljs-keyword">Exit</span> <span class="hljs-keyword">Do</span>
+<span class="hljs-keyword">Loop</span>
+</code></pre>
+        <h2 id="menggunakan-wscriptquit-tidak-tepat">
+            Menggunakan wscript.quit tidak tepat
+        </h2>
+        <blockquote>
+            <p>
+                karena akan langsung keluar dari program dan kode selanjutkan
+                tidak berjalan
+            </p>
+        </blockquote>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Do</span>
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+    WScript.Quit
+<span class="hljs-keyword">Loop</span>
+
+MsgBox <span class="hljs-string">&quot;Second&quot;</span>
+</code></pre>
+        <h2 id="do-until">Do Until</h2>
+        <blockquote>
+            <p>untuk berhenti dengan syarat</p>
+        </blockquote>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> n
+
+n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">do</span> Until n = <span class="hljs-number">5</span>
+    MsgBox n
+    n = n + <span class="hljs-number">1</span>
+<span class="hljs-keyword">Loop</span>
+</code></pre>
+        <h2 id="until-berada-di-akhir">Until berada di akhir</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> n
+
+n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">do</span>
+    MsgBox n
+    n = n + <span class="hljs-number">1</span>
+<span class="hljs-keyword">Loop</span> Until n = <span class="hljs-number">5</span>
+</code></pre>
+        <h2 id="menggunakan-lebih-dari">Menggunakan lebih dari</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> n
+
+n = <span class="hljs-number">1</span>
+<span class="hljs-keyword">do</span> Until n &gt; <span class="hljs-number">5</span>
+    n = n + <span class="hljs-number">1</span>
+    MsgBox n
+<span class="hljs-keyword">Loop</span>
+</code></pre>
+        <h2 id="do-while">Do While</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> n
+
+n = <span class="hljs-number">0</span>
+<span class="hljs-keyword">do</span> <span class="hljs-keyword">while</span> n &lt; <span class="hljs-number">5</span>
+    n = n + <span class="hljs-number">1</span>
+    MsgBox n
+<span class="hljs-keyword">Loop</span>
+</code></pre>
+        <h2 id="program-untuk-mengetikkan-password-dengan-benar">
+            Program untuk mengetikkan password dengan benar
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span> Until pass = <span class="hljs-string">&quot;faizal&quot;</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Password: &quot;</span>)
+<span class="hljs-keyword">loop</span>
+</code></pre>
+        <blockquote>
+            <p>bisa juga menggunakan &lt;&gt;</p>
+        </blockquote>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span> <span class="hljs-keyword">while</span> pass &lt;&gt; <span class="hljs-string">&quot;faizal&quot;</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Password: &quot;</span>)
+<span class="hljs-keyword">loop</span>
+</code></pre>
+        <blockquote>
+            <p>bisa juga seperti ini:</p>
+        </blockquote>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Password: &quot;</span>)
+    <span class="hljs-keyword">if</span> pass = <span class="hljs-string">&quot;faizal&quot;</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">Exit</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">loop</span>
+
+MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+</code></pre>
+        <h2 id="program-sederhana">Program Sederhana</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> pass
+
+<span class="hljs-keyword">do</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;Password: &quot;</span>)
+    <span class="hljs-keyword">if</span> pass = <span class="hljs-string">&quot;faizal&quot;</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">Exit</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">elseif</span> pass = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">Then</span>
+        MsgBox <span class="hljs-string">&quot;Don&#x27;t leave field blank.&quot;</span>
+    <span class="hljs-keyword">elseif</span> pass &lt;&gt; <span class="hljs-string">&quot;faizal&quot;</span> <span class="hljs-keyword">then</span>
+        MsgBox <span class="hljs-string">&quot;inccorect&quot;</span>, vbCritical
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">loop</span>
+
+MsgBox <span class="hljs-string">&quot;Correct&quot;</span>
+</code></pre>
+    </body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Copy Move Rename File Folders</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="copy-move-rename-file-folders">
+            Copy Move Rename File Folders
+        </h1>
+        <h2 id="basic">Basic</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.CopyFile <span class="hljs-string">&quot;Location&quot;</span>, <span class="hljs-string">&quot;New Location&quot;</span>
+fso.CopyFolder <span class="hljs-string">&quot;Location&quot;</span>, <span class="hljs-string">&quot;New Location&quot;</span>
+
+fso.MoveFile <span class="hljs-string">&quot;Location&quot;</span>, <span class="hljs-string">&quot;New Location&quot;</span>
+fso.MoveFolder <span class="hljs-string">&quot;Location&quot;</span>, <span class="hljs-string">&quot;New Location&quot;</span>
+</code></pre>
+        <h2 id="copy-file">Copy file</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.CopyFile <span class="hljs-string">&quot;C:\Users\PIF\Desktop\coba.txt&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Downloads\faizal\&quot;</span>
+</code></pre>
+        <h2 id="copy-folder">Copy Folder</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.CopyFolder <span class="hljs-string">&quot;C:\Users\PIF\Desktop\folder&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Downloads\faizal\&quot;</span>
+</code></pre>
+        <h2 id="move-file--folder">Move File &amp; Folder</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.MoveFile <span class="hljs-string">&quot;C:\Users\PIF\Downloads\pif\coba.txt&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\&quot;</span>
+fso.MoveFolder <span class="hljs-string">&quot;C:\Users\PIF\Downloads\pif\program&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\&quot;</span>
+</code></pre>
+        <h2 id="rename-file--folder">Rename File &amp; folder</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.MoveFile <span class="hljs-string">&quot;C:\Users\PIF\Desktop\coba.txt&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\coba3.txt&quot;</span>
+fso.MoveFolder <span class="hljs-string">&quot;C:\Users\PIF\Desktop\program&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\yare&quot;</span>
+</code></pre>
+        <h2 id="copt--move-multiple-file">Copt / Move Multiple File</h2>
+        <p>* = asterik</p>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.MoveFile <span class="hljs-string">&quot;C:\Users\PIF\Desktop\*.txt&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\&quot;</span>
+</code></pre>
+        <h2 id="extension-asterik">Extension asterik</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.MoveFile <span class="hljs-string">&quot;C:\Users\PIF\Desktop\pif.*&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\pif&quot;</span>
+</code></pre>
+        <h2 id="mengcopy-semua-isi-folder-dengan-asterik">
+            Mengcopy semua isi folder dengan asterik
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.MoveFile <span class="hljs-string">&quot;C:\Users\PIF\Desktop\*.*&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\pif\&quot;</span>
+</code></pre>
+        <h2 id="mengcopy-semua-folder">Mengcopy semua folder</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+fso.MoveFile <span class="hljs-string">&quot;C:\Users\PIF\Desktop\*&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\pif\&quot;</span>
+</code></pre>
+        <h2 id="ketika-mengcopy-folder-error-solusi">
+            ketika mengcopy folder error solusi
+        </h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+<span class="hljs-keyword">if</span> fos.FileExists(<span class="hljs-string">&quot;C:\Users\PIF\Downloads\program&quot;</span>) <span class="hljs-keyword">then</span>
+    fso.CopyFolder <span class="hljs-string">&quot;C:\Users\PIF\Downloads\program\*&quot;</span>, <span class="hljs-string">&quot;C:\Users\PIF\Desktop\pif\&quot;</span>
+<span class="hljs-keyword">else</span>
+    WScript.Echo <span class="hljs-string">&quot;doen&#x27;t exist&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    </body>
+</html>

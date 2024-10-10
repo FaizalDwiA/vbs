@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Input Box</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        </link><style>.task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="input-box">Input Box</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;message&quot;</span>, <span class="hljs-string">&quot;title&quot;</span>, <span class="hljs-string">&quot;input field&quot;</span>, xPosition, yPosition
+</code></pre>
+    <hr />
+    <h2 id="pesan">Pesan</h2>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;What is your name?&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\6\1.webp" alt="1" /></p>
+    <hr />
+    <h2 id="judul">Judul</h2>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\6\2.webp" alt="2" /></p>
+    <hr />
+    <h2 id="input-field">input field</h2>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>, <span class="hljs-string">&quot;Name goes here.&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\6\3.webp" alt="3" /></p>
+    <h2 id="mengatur-posisi-input-box">Mengatur posisi input box</h2>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>, <span class="hljs-string">&quot;Name goes here.&quot;</span>, <span class="hljs-number">500</span>, <span class="hljs-number">500</span>
+</code></pre>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>, <span class="hljs-string">&quot;Name goes here.&quot;</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>
+</code></pre>
+    <pre><code class="language-vb">InputBox <span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>, <span class="hljs-string">&quot;Name goes here.&quot;</span>, <span class="hljs-number">15000</span>, <span class="hljs-number">0</span>
+</code></pre>
+    <hr />
+    <h2 id="contoh">Contoh</h2>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> name
+
+name = InputBox(<span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>)
+
+MsgBox name, vbOKOnly, <span class="hljs-string">&quot;This is your name&quot;</span>
+</code></pre>
+    <p><img src="file:///d:\Project\vbs\asset\img\6\4.webp" alt="4" /></p>
+    <p><img src="file:///d:\Project\vbs\asset\img\6\5.webp" alt="5" /></p>
+    <hr />
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> name
+
+name = InputBox(<span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>)
+
+<span class="hljs-keyword">if</span> name = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Please Type your name.&quot;</span>
+<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> name = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-keyword">elseif</span> <span class="hljs-built_in">not</span> name = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Intruder&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> name
+
+name = InputBox(<span class="hljs-string">&quot;What is your name?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>)
+
+<span class="hljs-keyword">if</span> name = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Please Type your name.&quot;</span>
+<span class="hljs-keyword">elseif</span> name = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-built_in">or</span> name = <span class="hljs-string">&quot;black&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;Hello&quot;</span>
+<span class="hljs-keyword">else</span>
+    MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <hr />
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> name
+
+name = InputBox(<span class="hljs-string">&quot;What is your age?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>)
+
+<span class="hljs-keyword">if</span> IsNumeric(name) <span class="hljs-built_in">and</span> name = <span class="hljs-string">&quot;15&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;correct&quot;</span>
+<span class="hljs-keyword">ElseIf</span> <span class="hljs-built_in">not</span> IsNumeric(name) <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Please type in a number value.&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+    <pre><code class="language-vb"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> name
+
+name = InputBox(<span class="hljs-string">&quot;What is your age?&quot;</span>, <span class="hljs-string">&quot;Information:&quot;</span>)
+
+<span class="hljs-keyword">if</span> IsNumeric(name) <span class="hljs-built_in">and</span> name = <span class="hljs-string">&quot;15&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;correct&quot;</span>
+<span class="hljs-keyword">elseif</span> name &lt;&gt; <span class="hljs-string">&quot;15&quot;</span> <span class="hljs-keyword">then</span>
+    MsgBox <span class="hljs-string">&quot;wrong age&quot;</span>
+<span class="hljs-keyword">ElseIf</span> <span class="hljs-built_in">not</span> IsNumeric(name) <span class="hljs-keyword">Then</span>
+    MsgBox <span class="hljs-string">&quot;Please type in a number value.&quot;</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+</code></pre>
+</body>
+
+</html>

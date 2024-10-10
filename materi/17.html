@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Special Folders</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="special-folders">Special Folders</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+objShell.SpecialFolders(<span class="hljs-string">&quot;&quot;</span>)
+</code></pre>
+    <h2 id="list-special-folders">List Special Folders</h2>
+    <ul>
+        <li>llUsersDesktop</li>
+        <li>llUsersStartMenu</li>
+        <li>llUsersPrograms</li>
+        <li>llUsersStartup</li>
+        <li>ektop</li>
+        <li>avorites</li>
+        <li>onts</li>
+        <li>yDocuments</li>
+        <li>etHood</li>
+        <li>rintHood</li>
+        <li>rograms</li>
+        <li>ecent</li>
+        <li>endTo</li>
+        <li>tartMenu</li>
+        <li>tartup</li>
+        <li>emplates</li>
+    </ul>
+    <h2 id="desktop">Desktop</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+objShell.SpecialFolders(<span class="hljs-string">&quot;Desktop&quot;</span>)
+</code></pre>
+    <blockquote>
+        <p>Hasil :</p>
+    </blockquote>
+    <p>
+        <img src="..\asset\img\materi\17\1.webp" alt="1" />
+    </p>
+    <h2 id="run-command-desktop">Run Command Desktop</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell, path
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+path = objShell.SpecialFolders(<span class="hljs-string">&quot;Desktop&quot;</span>) &amp; <span class="hljs-string">&quot;\pif&quot;</span>
+
+objShell.run path
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell, fso, nDirs, desktop
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+
+nDirs = objShell.SpecialFolders(<span class="hljs-string">&quot;startup&quot;</span>) &amp; <span class="hljs-string">&quot;\&quot;</span>
+desktop = objShell.SpecialFolders(<span class="hljs-string">&quot;Desktop&quot;</span>) &amp; <span class="hljs-string">&quot;\coba.txt&quot;</span>
+
+fso.CopyFile desktop, nDirs
+</code></pre>
+    <hr />
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell, fso, nDirS, nDirD
+
+<span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+<span class="hljs-keyword">set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;scripting.fileSystemObject&quot;</span>)
+
+nDirs = objShell.SpecialFolders(<span class="hljs-string">&quot;startup&quot;</span>)
+nDirD = objShell.SpecialFolders(<span class="hljs-string">&quot;Desktop&quot;</span>)
+
+objShell.run nDirS &amp; <span class="hljs-string">&quot;\&quot;</span>
+
+fso.CopyFile nDirs &amp; <span class="hljs-string">&quot;\coba.txt&quot;</span>, nDirD &amp; <span class="hljs-string">&quot;\&quot;</span>
+
+MsgBox <span class="hljs-string">&quot;Complate&quot;</span>
+</code></pre>
+</body>
+
+</html>

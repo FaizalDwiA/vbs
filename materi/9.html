@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Len Left Right</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="len-left-right">Len Left Right</h1>
+    <h2 id="basic">Basic</h2>
+    <pre><code class="language-vbs"><span class="hljs-built_in">Len</span>(string) = #
+<span class="hljs-built_in">Left</span>(string, #) = Left too Right
+<span class="hljs-built_in">Right</span>(string, #) = Right too Left
+</code></pre>
+    <h2 id="len">Len</h2>
+    <pre><code class="language-vbs">MsgBox <span class="hljs-built_in">Len</span>(<span class="hljs-string">&quot;Faizal Dwi Al Farizi&quot;</span>)
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\9\1.webp" alt="1" />
+    </p>
+    <blockquote>
+        <p>sama dengan</p>
+    </blockquote>
+    <pre><code class="language-vbs">a = <span class="hljs-string">&quot;Faizal Dwi Al Farizi&quot;</span>
+MsgBox <span class="hljs-built_in">Len</span>(a)
+</code></pre>
+    <h2 id="left">Left</h2>
+    <blockquote>
+        <p>Mengambil angka / huruf dari kiri ke kanan</p>
+    </blockquote>
+    <pre><code class="language-vbs">a = <span class="hljs-string">&quot;Faizal Dwi Al Farizi&quot;</span>
+MsgBox <span class="hljs-built_in">Left</span>(a, <span class="hljs-number">5</span>)
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\9\2.webp" alt="2" />
+    </p>
+    <h2 id="right">Right</h2>
+    <blockquote>
+        <p>Mengambil angka / huruf dari kanan ke kiri</p>
+    </blockquote>
+    <pre><code class="language-vbs">a = <span class="hljs-string">&quot;Faizal Dwi Al Farizi&quot;</span>
+MsgBox <span class="hljs-built_in">Right</span>(a, <span class="hljs-number">5</span>)
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\9\3.webp" alt="3" />
+    </p>
+    <h2 id="example">Example</h2>
+    <pre><code class="language-vbs">a = <span class="hljs-string">&quot;I love cats&quot;</span>
+b = <span class="hljs-string">&quot;dogs are stupid&quot;</span>
+
+MsgBox <span class="hljs-built_in">Left</span>(<span class="hljs-number">1</span>, <span class="hljs-number">7</span>) &amp; <span class="hljs-built_in">Left</span>(b, <span class="hljs-number">5</span>) &amp; <span class="hljs-built_in">Right</span>(a, <span class="hljs-number">4</span>) &amp; <span class="hljs-built_in">Right</span>(b, <span class="hljs-number">11</span>)
+</code></pre>
+    <p>
+        <img src="..\asset\img\materi\9\4.webp" alt="4" />
+    </p>
+</body>
+
+</html>

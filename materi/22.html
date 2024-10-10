@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Append Files OpenTextFile</title>
+        <style>
+            /* From extension vscode.github */
+            /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+            .vscode-dark img[src$="\#gh-light-mode-only"],
+            .vscode-light img[src$="\#gh-dark-mode-only"] {
+                display: none;
+            }
+        </style>
+
+        <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+        <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+        <style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                    "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+            .task-list-item {
+                list-style-type: none;
+            }
+
+            .task-list-item-checkbox {
+                margin-left: -20px;
+                vertical-align: middle;
+                pointer-events: none;
+            }
+        </style>
+    </head>
+    <body class="vscode-body vscode-light">
+        <h1 id="append-files-opentextfile">Append Files OpenTextFile</h1>
+        <h2 id="basic">Basic</h2>
+        <p>Menambahkan text</p>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, file, x
+<span class="hljs-keyword">Const</span> append = <span class="hljs-number">8</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>, append, <span class="hljs-literal">True</span>)
+
+oFile.Write
+oFile.WriteLine
+oFile.WriteBlankLines()
+</code></pre>
+        <h2 id="write">Write</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, file, x
+<span class="hljs-keyword">Const</span> append = <span class="hljs-number">8</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>, append, <span class="hljs-literal">True</span>)
+
+oFile.Write <span class="hljs-string">&quot;Hello World&quot;</span>
+</code></pre>
+        <h2 id="writeblanklines">writeBlankLines</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, file, x
+<span class="hljs-keyword">Const</span> append = <span class="hljs-number">8</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+<span class="hljs-keyword">set</span> oFile = fso.OpenTextFile(<span class="hljs-string">&quot;C:\Users\Program Is Fun\Desktop\syiber.txt&quot;</span>, append, <span class="hljs-literal">True</span>)
+
+oFile.WriteBlankLines(<span class="hljs-number">1</span>)
+oFile.Write <span class="hljs-string">&quot;Hello World&quot;</span>
+</code></pre>
+        <h2 id="program-sederhana">Program Sederhana</h2>
+        <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> fso, oFile, cd, current, create, objWrite, objRead
+<span class="hljs-keyword">Const</span> vbAppend = <span class="hljs-number">8</span>, vbRead = <span class="hljs-number">1</span>
+
+<span class="hljs-keyword">Set</span> fso = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;Scripting.FileSystemObject&quot;</span>)
+
+cd = <span class="hljs-built_in">Replace</span>(WScript.ScriptFullName, WScript.ScriptName, <span class="hljs-string">&quot;syiber.txt&quot;</span>)
+
+<span class="hljs-comment">&#x27; ---------------</span>
+<span class="hljs-comment">&#x27; SETUP PROCESS</span>
+<span class="hljs-comment">&#x27; ---------------</span>
+
+<span class="hljs-keyword">sub</span> refresh
+    <span class="hljs-keyword">set</span> objRead = fso.OpenTextFile(cd, vbRead)
+    current = objRead.ReadAll
+    objRead.Close
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-keyword">sub</span> main
+    <span class="hljs-keyword">do</span>
+        create = <span class="hljs-built_in">InputBox</span>(current, <span class="hljs-string">&quot;Text Editor: [*] to quit&quot;</span>)
+        <span class="hljs-keyword">if</span> create = <span class="hljs-string">&quot;*&quot;</span> <span class="hljs-keyword">then</span>
+            WScript.Quit
+        <span class="hljs-keyword">elseif</span> create = <span class="hljs-string">&quot;&quot;</span> <span class="hljs-keyword">then</span>
+            <span class="hljs-keyword">set</span> objWrite = fso.OpenTextFile(cd, vbAppend, <span class="hljs-number">1</span>)
+            objWrite.WriteBlankLines(<span class="hljs-number">1</span>)
+            objWrite.close
+            <span class="hljs-keyword">call</span> refresh
+        <span class="hljs-keyword">else</span>
+            <span class="hljs-keyword">set</span> objWrite = fso.OpenTextFile(cd, vbAppend, <span class="hljs-number">1</span>)
+            objWrite.Write create
+            objWrite.close
+            <span class="hljs-keyword">Call</span> refresh
+        <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+    <span class="hljs-keyword">loop</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">sub</span>
+
+<span class="hljs-comment">&#x27; -----------------</span>
+<span class="hljs-comment">&#x27; WRITTING PROCESS</span>
+<span class="hljs-comment">&#x27; -----------------</span>
+
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> fso.FileExists(cd) <span class="hljs-keyword">then</span>
+    <span class="hljs-keyword">call</span> main
+<span class="hljs-keyword">else</span>
+    <span class="hljs-keyword">if</span> fso.GetFile(cd).size = <span class="hljs-number">0</span> <span class="hljs-keyword">then</span>
+        <span class="hljs-keyword">call</span> main
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-keyword">call</span> refresh
+        <span class="hljs-keyword">call</span> main
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+
+WScript.Quit
+</code></pre>
+    </body>
+</html>

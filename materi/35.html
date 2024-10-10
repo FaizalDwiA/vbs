@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Kill Create Process</title>
+    <style>
+        /* From extension vscode.github */
+        /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+        .vscode-dark img[src$="\#gh-light-mode-only"],
+        .vscode-light img[src$="\#gh-dark-mode-only"] {
+            display: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../asset/css/markdown.min.css" />
+    <link rel="stylesheet" href="../asset/css/highlight.min.css" />
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC",
+                "Segoe UI", system-ui, "Ubuntu", "Droid Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+    </style>
+    <style>
+        .task-list-item {
+            list-style-type: none;
+        }
+
+        .task-list-item-checkbox {
+            margin-left: -20px;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<body class="vscode-body vscode-light">
+    <h1 id="kill-create-process">Kill Create Process</h1>
+    <h2 id="mematikan-notepad-lewat-cmd">Mematikan Notepad lewat cmd</h2>
+    <p>
+        <img src="..\asset\img\materi\35\1.webp" alt="1" />
+    </p>
+    <h2 id="menjalankan-notepad">Menjalankan Notepad</h2>
+    <p>
+        <img src="..\asset\img\materi\35\2.webp" alt="2" />
+    </p>
+    <h2 id="mematikan-explorer">Mematikan Explorer</h2>
+    <p>
+        <img src="..\asset\img\materi\35\3.webp" alt="3" />
+    </p>
+    <h2 id="menjalankan-explorer">Menjalankan Explorer</h2>
+    <p>
+        <img src="..\asset\img\materi\35\4.webp" alt="4" />
+    </p>
+    <h2 id="mematikan-notepad">Mematikan Notepad</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell : <span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+objShell.run <span class="hljs-string">&quot;taskkill /f /im notepad.exe&quot;</span>
+</code></pre>
+    <h2 id="process-tidak-tampil">Process Tidak Tampil</h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objShell : <span class="hljs-keyword">set</span> objShell = <span class="hljs-built_in">CreateObject</span>(<span class="hljs-string">&quot;wscript.shell&quot;</span>)
+
+objShell.run <span class="hljs-string">&quot;taskkill /f /im notepad.exe&quot;</span>, <span class="hljs-number">0</span>
+</code></pre>
+    <h2 id="melihat-proses--apk-yang-berjalan">
+        Melihat Proses / Apk Yang Berjalan
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objWMIService : <span class="hljs-keyword">set</span> objWMIService = <span class="hljs-built_in">GetObject</span>(<span class="hljs-string">&quot;winmgmts:&quot;</span>)
+<span class="hljs-keyword">dim</span> processList, process, prorun
+
+<span class="hljs-keyword">set</span> processList = objWMIService.execQuery _
+(<span class="hljs-string">&quot;SELECT * FROM win32_process&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> process <span class="hljs-keyword">in</span> processList
+    prorun = prorun &amp; process.name &amp; vbTab
+<span class="hljs-keyword">next</span>
+
+MsgBox prorun
+</code></pre>
+    <p>Hasil :</p>
+    <p>
+        <img src="..\asset\img\materi\35\5.webp" alt="5" />
+    </p>
+    <h2 id="mematikan-notepad-dengan-terminate">
+        Mematikan Notepad Dengan Terminate
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objWMIService : <span class="hljs-keyword">set</span> objWMIService = <span class="hljs-built_in">GetObject</span>(<span class="hljs-string">&quot;winmgmts:&quot;</span>)
+<span class="hljs-keyword">dim</span> processList, process, prorun
+
+<span class="hljs-keyword">set</span> processList = objWMIService.execQuery _
+(<span class="hljs-string">&quot;SELECT * FROM win32_process&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> process <span class="hljs-keyword">in</span> processList
+    <span class="hljs-keyword">if</span> process.name = <span class="hljs-string">&quot;notepad.exe&quot;</span> <span class="hljs-keyword">then</span>
+        process.terminate
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">next</span>
+</code></pre>
+    <h2 id="mematikan-kemudian-menghidupkan-kembali">
+        Mematikan Kemudian Menghidupkan Kembali
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objWMIService : <span class="hljs-keyword">set</span> objWMIService = <span class="hljs-built_in">GetObject</span>(<span class="hljs-string">&quot;winmgmts:&quot;</span>)
+<span class="hljs-keyword">dim</span> processList, process, prorun
+
+<span class="hljs-keyword">set</span> processList = objWMIService.execQuery _
+(<span class="hljs-string">&quot;SELECT * FROM win32_process WHERE name = &#x27;notepad.exe&#x27;&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> process <span class="hljs-keyword">in</span> processList
+        process.terminate
+<span class="hljs-keyword">next</span>
+
+MsgBox <span class="hljs-string">&quot;Terminated&quot;</span>
+
+objWMIService.<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;win32_process&quot;</span>).create <span class="hljs-string">&quot;notepad.exe&quot;</span>
+MsgBox <span class="hljs-string">&quot;recreating&quot;</span>
+</code></pre>
+    <h2 id="mematikan-explorer-kemudian-dipassword">
+        Mematikan Explorer Kemudian Dipassword
+    </h2>
+    <pre><code class="language-vbs"><span class="hljs-keyword">Option</span> <span class="hljs-keyword">Explicit</span>
+<span class="hljs-keyword">dim</span> objWMIService : <span class="hljs-keyword">set</span> objWMIService = <span class="hljs-built_in">GetObject</span>(<span class="hljs-string">&quot;winmgmts:&quot;</span>)
+<span class="hljs-keyword">dim</span> processList, process, pass
+
+<span class="hljs-keyword">set</span> processList = objWMIService.execQuery _
+(<span class="hljs-string">&quot;SELECT * FROM win32_process WHERE name = &#x27;explorer.exe&#x27;&quot;</span>)
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">Each</span> process <span class="hljs-keyword">in</span> processList
+        process.terminate(<span class="hljs-number">1</span>)
+<span class="hljs-keyword">next</span>
+
+<span class="hljs-keyword">Do</span>
+    pass = <span class="hljs-built_in">InputBox</span>(<span class="hljs-string">&quot;What&#x27;s the password?&quot;</span>)
+    <span class="hljs-keyword">if</span> pass = <span class="hljs-string">&quot;syiber&quot;</span> <span class="hljs-keyword">then</span>
+        objWMIService.<span class="hljs-keyword">get</span>(<span class="hljs-string">&quot;win32_process&quot;</span>).create(<span class="hljs-string">&quot;explorer.exe&quot;</span>)
+        <span class="hljs-keyword">exit</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">else</span>
+        MsgBox <span class="hljs-string">&quot;Wrong&quot;</span>
+    <span class="hljs-keyword">end</span> <span class="hljs-keyword">if</span>
+<span class="hljs-keyword">loop</span>
+</code></pre>
+</body>
+
+</html>
